@@ -89,3 +89,14 @@ body {
         border-bottom: 0;
     }
 }
+
+canvas {
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    border: 2px solid black;
+}
+
+.viewer {
+    background-color: black;
+}
