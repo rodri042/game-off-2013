@@ -1,4 +1,4 @@
-define ['pixi'], ->
+define ['jquery', 'pixi'], ($) ->
 
 	class Stage extends PIXI.Stage
 		WIDTH = 1000
