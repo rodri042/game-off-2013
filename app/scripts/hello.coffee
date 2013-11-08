@@ -5,8 +5,8 @@ class Randomizer
   		Math.floor Math.random() * (@max - @min + 1) + @min
 
 class Stage extends PIXI.Stage
-	WIDTH = 1300
-	HEIGHT = 800
+	WIDTH = 1000
+	HEIGHT = 600
 
 	constructor: ->
 		super 0xFFFFFF
