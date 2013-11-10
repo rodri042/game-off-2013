@@ -57,4 +57,4 @@ require ["world/Stage", "morphtocat"], (Stage, Morphtocat) ->
 	
 	stage = new Stage()
 	$("#game").append stage.view()
-	new Morphtocat stage
+	window.morphtocat = new Morphtocat stage
