@@ -11,12 +11,10 @@ define ['pixi', 'utils/NumberUtils'], ->
 			@loop = false
 
 		render: =>
-			if (@currentFrame == 18)
-				@currentFrame = 0
-				@stop()
 
 		move: (x, y) =>
 			@position.x += x
 			@position.y += y
 
-			@play()
+			if (!@playing)
+				@gotoAndPlay(0)
