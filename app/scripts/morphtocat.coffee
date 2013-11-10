@@ -3,8 +3,11 @@ define ['utils/Game', 'characters/Octocat'], (Game, Octocat) ->
 	class Morphtocat extends Game
 		constructor: (@stage) ->
 			super @assets(), =>
-				@octocat = @stage.addChildCentered new Octocat()
-				@gameLoop
+				@init(); @gameLoop
+
+		init: =>
+			@octocat = @stage.addChildCentered new Octocat()
+
 
 		gameLoop: =>
 			@stage.render()

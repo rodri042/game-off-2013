@@ -9,18 +9,25 @@ define ['pixi', 'utils/Randomizer'], (_, Randomizer) ->
 			@anchor.x = 0.5
 			@anchor.y = 0.5
 
-			@randomizeSpeed()
+			@_randomizeSpeed()
 
-		randomizeSpeed: =>
+		render: ->
+			@_rotateLeft()
+			@_move()		
+
+		flip: (coordinate) => 
+			@speed[coordinate] *= -1
+			
+		_randomizeSpeed: =>
 			randomizer = new Randomizer -10, 10
 			@speed =
 				x: randomizer.get()
 				y: randomizer.get()
 
-		rotateLeft: => 
+		_rotateLeft: => 
 			@rotation -= 0.06
 
-		move: =>
+		_move: =>
 			@position.x += @speed.x
 			@position.y += @speed.y
 
@@ -29,10 +36,3 @@ define ['pixi', 'utils/Randomizer'], (_, Randomizer) ->
 
 			if @stage.collidesOnTop(@) || @stage.collidesOnBottom(@)
 				@flip 'y'
-
-		flip: (coordinate) => 
-			@speed[coordinate] *= -1
-
-		render: ->
-			@rotateLeft()
-			@move()		
