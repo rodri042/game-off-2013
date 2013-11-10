@@ -1,63 +1,60 @@
 require.config
-  paths:
-    jquery: "../bower_components/jquery/jquery"
-    pixi: "../bower_components/pixi/bin/pixi"
-    bootstrapAffix: "../bower_components/sass-bootstrap/js/affix"
-    bootstrapAlert: "../bower_components/sass-bootstrap/js/alert"
-    bootstrapButton: "../bower_components/sass-bootstrap/js/button"
-    bootstrapCarousel: "../bower_components/sass-bootstrap/js/carousel"
-    bootstrapCollapse: "../bower_components/sass-bootstrap/js/collapse"
-    bootstrapDropdown: "../bower_components/sass-bootstrap/js/dropdown"
-    bootstrapModal: "../bower_components/sass-bootstrap/js/modal"
-    bootstrapPopover: "../bower_components/sass-bootstrap/js/popover"
-    bootstrapScrollspy: "../bower_components/sass-bootstrap/js/scrollspy"
-    bootstrapTab: "../bower_components/sass-bootstrap/js/tab"
-    bootstrapTooltip: "../bower_components/sass-bootstrap/js/tooltip"
-    bootstrapTransition: "../bower_components/sass-bootstrap/js/transition"
+	paths:
+		jquery: "../bower_components/jquery/jquery"
+		pixi: "../bower_components/pixi/bin/pixi"
+		bootstrapAffix: "../bower_components/sass-bootstrap/js/affix"
+		bootstrapAlert: "../bower_components/sass-bootstrap/js/alert"
+		bootstrapButton: "../bower_components/sass-bootstrap/js/button"
+		bootstrapCarousel: "../bower_components/sass-bootstrap/js/carousel"
+		bootstrapCollapse: "../bower_components/sass-bootstrap/js/collapse"
+		bootstrapDropdown: "../bower_components/sass-bootstrap/js/dropdown"
+		bootstrapModal: "../bower_components/sass-bootstrap/js/modal"
+		bootstrapPopover: "../bower_components/sass-bootstrap/js/popover"
+		bootstrapScrollspy: "../bower_components/sass-bootstrap/js/scrollspy"
+		bootstrapTab: "../bower_components/sass-bootstrap/js/tab"
+		bootstrapTooltip: "../bower_components/sass-bootstrap/js/tooltip"
+		bootstrapTransition: "../bower_components/sass-bootstrap/js/transition"
 
-  shim:
-    bootstrapAffix:
-      deps: ["jquery"]
+	shim:
+		bootstrapAffix:
+			deps: ["jquery"]
 
-    bootstrapAlert:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapAlert:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapButton:
-      deps: ["jquery"]
+		bootstrapButton:
+			deps: ["jquery"]
 
-    bootstrapCarousel:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapCarousel:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapCollapse:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapCollapse:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapDropdown:
-      deps: ["jquery"]
+		bootstrapDropdown:
+			deps: ["jquery"]
 
-    bootstrapModal:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapModal:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapPopover:
-      deps: ["jquery", "bootstrapTooltip"]
+		bootstrapPopover:
+			deps: ["jquery", "bootstrapTooltip"]
 
-    bootstrapScrollspy:
-      deps: ["jquery"]
+		bootstrapScrollspy:
+			deps: ["jquery"]
 
-    bootstrapTab:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapTab:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapTooltip:
-      deps: ["jquery", "bootstrapTransition"]
+		bootstrapTooltip:
+			deps: ["jquery", "bootstrapTransition"]
 
-    bootstrapTransition:
-      deps: ["jquery"]
+		bootstrapTransition:
+			deps: ["jquery"]
 
-require ["utils/Game", "world/Stage", "characters/Octocat"], (Game, Stage, Octocat) ->
-  "use strict"
-  
-  new Game ["assets/sprites/classic-octocat.json"], ->
-    stage = new Stage()
-    document.getElementById("game").appendChild stage.view()
-    octocat = stage.addChildCentered new Octocat()
-
-    stage
+require ["world/Stage", "morphtocat"], (Stage, Morphtocat) ->
+	"use strict"
+	
+	stage = new Stage()
+	$("#game").append stage.view()
+	new Morphtocat stage

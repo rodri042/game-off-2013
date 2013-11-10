@@ -4,8 +4,8 @@ define ['pixi'], ->
 		constructor: (assetsToLoad, init) ->
 			loader = new PIXI.AssetLoader assetsToLoad
 			loader.onComplete = => 
-				stage = init()  
-				@start -> stage.render()
+				render = init()  
+				@start render
 				
 			loader.load()
 
