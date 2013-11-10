@@ -1,6 +1,6 @@
 define ['pixi', 'utils/Randomizer'], (_, Randomizer) ->
 
-	class Octocat extends PIXI.Sprite
+	class OctoBall extends PIXI.Sprite
 		constructor: ->
 			texture = PIXI.Texture.fromImage("../assets/sprites/octocat.png")
 			super texture		
