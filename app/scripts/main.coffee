@@ -52,9 +52,9 @@ require.config
 		bootstrapTransition:
 			deps: ["jquery"]
 
-require ["world/Stage", "morphtocat"], (Stage, Morphtocat) ->
+require ["engine/Resolution", "engine/Stage", "morphtocat"], (Resolution, Stage, Morphtocat) ->
 	"use strict"
 	
-	stage = new Stage()
+	stage = new Stage new Resolution(1000, 600)
 	$("#game").append stage.view()
 	window.morphtocat = new Morphtocat stage

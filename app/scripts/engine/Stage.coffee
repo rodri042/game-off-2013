@@ -1,12 +1,11 @@
-define ['jquery', 'pixi'], ($) ->
+define ['jquery', 'pixi', 'utils/Keyboard'], ($, _, Keyboard) ->
 
 	class Stage extends PIXI.Stage
-		WIDTH = 1000
-		HEIGHT = 600
-
-		constructor: ->
+		constructor: (@resolution) ->
 			super 0xFFFFFF
-			@renderer = PIXI.autoDetectRenderer WIDTH, HEIGHT
+
+			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
+			@keys = new Keyboard $(window)
 
 		center: (anObject) =>
 			anObject.position.x = @width() / 2

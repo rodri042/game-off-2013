@@ -1,4 +1,4 @@
-define ['utils/Game', 'characters/Octocat'], (Game, Octocat) ->
+define ['engine/Game', 'characters/Octocat'], (Game, Octocat) ->
 
 	class Morphtocat extends Game
 		constructor: (@stage) ->
@@ -8,6 +8,8 @@ define ['utils/Game', 'characters/Octocat'], (Game, Octocat) ->
 		init: =>
 			@octocat = @stage.addChildCentered new Octocat()
 
+			@stage.keys.left = =>
+				alert "Tocaste la flecha izquierda"
 
 		gameLoop: =>
 			@stage.render()
