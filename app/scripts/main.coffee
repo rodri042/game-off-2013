@@ -52,17 +52,12 @@ require.config
     bootstrapTransition:
       deps: ["jquery"]
 
-require ["utils/Game", "world/Stage", "characters/OctoBall", "utils/Counter"], (Game, Stage, OctoBall, Counter) ->
+require ["utils/Game", "world/Stage", "characters/Octocat"], (Game, Stage, Octocat) ->
   "use strict"
   
-  stage = new Stage()
-  stage.onClick -> octocats.push stage.addChildCentered(new OctoBall())
+  new Game ["assets/sprites/classic-octocat.json"], ->
+    stage = new Stage()
+    document.getElementById("game").appendChild stage.view()
+    octocat = stage.addChildCentered new Octocat()
 
-  document.getElementById("game").appendChild stage.view()
-
-  octocats = [ stage.addChildCentered new OctoBall() ]
-
-  ballsCounter = new Counter octocats, "OctoBalls: "
-  stage.addChild ballsCounter
-
-  new Game( -> stage.render()).start()
+    stage
