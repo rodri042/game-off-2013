@@ -20,5 +20,5 @@ define ['engine/Game', 'characters/Octocat'], (Game, Octocat) ->
 			#código del juego
 
 		assets: => [
-				"assets/sprites/classic-octocat.json"
+				"assets/sprites/classic.json"
 			]
