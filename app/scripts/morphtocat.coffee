@@ -8,8 +8,11 @@ define ['engine/Game', 'characters/Octocat'], (Game, Octocat) ->
 		init: =>
 			@octocat = @stage.addChildCentered new Octocat()
 
-			@stage.keys.left = =>
-				alert "Tocaste la flecha izquierda"
+			keys = @stage.keys
+			keys.left = => @octocat.position.x -= 3
+			keys.right = => @octocat.position.x += 3
+			keys.up = => @octocat.position.y -= 3
+			keys.down = => @octocat.position.y += 3
 
 		gameLoop: =>
 			@stage.render()
