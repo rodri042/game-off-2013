@@ -15,7 +15,7 @@ define ["utils/ArrayUtils"], ->
 		raiseEvents: =>
 			_this = @
 			@pressedKeys.forEach (key) =>
-				handler = eval "_this.#{@keyCodeMap[key]}"
+				handler = eval """_this["#{@keyCodeMap[key]}"]"""
 				handler?()
 
 		_registerEvent: (register, handler) =>
