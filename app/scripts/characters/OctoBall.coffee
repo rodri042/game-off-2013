@@ -11,7 +11,7 @@ define ["pixi", "utils/Randomizer"], (_, Randomizer) ->
 
 			@_randomizeSpeed()
 
-		render: ->
+		render: =>
 			@_rotateLeft()
 			@_move()		
 
