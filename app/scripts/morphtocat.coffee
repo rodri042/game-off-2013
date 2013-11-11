@@ -16,6 +16,8 @@ define ["engine/Game", "characters/Octocat", "characters/ClassicShape", "charact
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
 
+			@stage.addChild new PIXI.Text("Flechas, R, C", fill: "black")
+
 		gameLoop: =>
 			@stage.render()
 
