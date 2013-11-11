@@ -1,4 +1,4 @@
-define ['jquery', 'pixi', 'utils/Keyboard'], ($, _, Keyboard) ->
+define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 
 	class Stage extends PIXI.Stage
 		constructor: (@resolution) ->
@@ -15,6 +15,7 @@ define ['jquery', 'pixi', 'utils/Keyboard'], ($, _, Keyboard) ->
 		height: -> @renderer.height		
 
 		render: =>
+			@keys.raiseEvents()
 			@children.forEach (it) -> it.render()
 			@renderer.render @
 

@@ -1,12 +1,24 @@
-define [], ->
+define ["utils/ArrayUtils"], ->
 
 	class Keyboard
-		constructor: (target) ->
-			target.keydown (event) =>
-				handler = @_keyCodeMap()[event.which]
-				if handler?
-					event.preventDefault()
-					handler()
+		constructor: (@target) ->
+			@pressedKeys = []
+
+			@_registerEvent target.keydown, (key) =>
+				@pressedKeys.addIfNotExists key
+
+			@_registerEvent target.keyup, (key) =>
+				@pressedKeys.remove key
+
+		raiseEvents: =>
+			@pressedKeys.forEach (key) =>
+				handler = @_keyCodeMap()[key]
+				handler?()
+
+		_registerEvent: (register, handler) =>
+			register.call @target, (event) =>
+				#event.preventDefault()
+				handler event.which
 
 		_keyCodeMap: =>
 			map =
