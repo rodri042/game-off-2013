@@ -1,7 +1,10 @@
 define [], ->
 
+	Array::contains = (item) ->
+		@indexOf(item) >= 0
+
 	Array::addIfNotExists = (item) ->
-		if @indexOf(item) >= 0 then return
+		if @contains item then return
 		@push item
 
 	Array::remove = (item) ->
