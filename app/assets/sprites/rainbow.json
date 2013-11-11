@@ -1,0 +1,164 @@
+{"frames": {
+
+"rainbow0001.png":
+{
+	"frame": {"x":148,"y":2,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0002.png":
+{
+	"frame": {"x":294,"y":592,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0003.png":
+{
+	"frame": {"x":148,"y":476,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0004.png":
+{
+	"frame": {"x":2,"y":476,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0005.png":
+{
+	"frame": {"x":294,"y":474,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0006.png":
+{
+	"frame": {"x":148,"y":358,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0007.png":
+{
+	"frame": {"x":148,"y":594,"w":144,"h":114},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":114},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0008.png":
+{
+	"frame": {"x":2,"y":358,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0009.png":
+{
+	"frame": {"x":294,"y":356,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0010.png":
+{
+	"frame": {"x":2,"y":2,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0011.png":
+{
+	"frame": {"x":148,"y":240,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0012.png":
+{
+	"frame": {"x":2,"y":240,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0013.png":
+{
+	"frame": {"x":2,"y":594,"w":144,"h":114},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":114},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0014.png":
+{
+	"frame": {"x":294,"y":238,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0015.png":
+{
+	"frame": {"x":148,"y":122,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0016.png":
+{
+	"frame": {"x":2,"y":122,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0017.png":
+{
+	"frame": {"x":294,"y":120,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0018.png":
+{
+	"frame": {"x":294,"y":2,"w":144,"h":116},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":8,"w":144,"h":116},
+	"sourceSize": {"w":150,"h":126}
+},
+"rainbow0019.png":
+{
+	"frame": {"x":148,"y":2,"w":144,"h":118},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":3,"y":7,"w":144,"h":118},
+	"sourceSize": {"w":150,"h":126}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "rainbow.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":1024},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4b57c9a27bc7cbee29e779773c40284a:f34a7afd8fbf9372f2a2293fe37ef0f0:3b0070ce74014bc342543460f727a494$"
+}
+}

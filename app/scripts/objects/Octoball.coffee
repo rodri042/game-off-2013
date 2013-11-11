@@ -1,8 +1,8 @@
 define ["pixi", "utils/Randomizer"], (_, Randomizer) ->
 
-	class OctoBall extends PIXI.Sprite
+	class Octoball extends PIXI.Sprite
 		constructor: ->
-			texture = PIXI.Texture.fromImage("../assets/sprites/octocat.png")
+			texture = PIXI.Texture.fromImage("../assets/sprites/octoball.png")
 			super texture		
 
 			# rotate around center
