@@ -1,4 +1,4 @@
-define ['engine/Game', 'characters/Octocat'], (Game, Octocat) ->
+define ["engine/Game", "characters/Octocat"], (Game, Octocat) ->
 
 	class Morphtocat extends Game
 		constructor: (@stage) ->

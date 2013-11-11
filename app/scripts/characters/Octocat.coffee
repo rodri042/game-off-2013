@@ -1,4 +1,4 @@
-define ['pixi', 'utils/NumberUtils'], ->
+define ["pixi", "utils/NumberUtils"], ->
 
 	class Octocat extends PIXI.MovieClip
 		constructor: ->
@@ -17,4 +17,4 @@ define ['pixi', 'utils/NumberUtils'], ->
 			@position.y += y
 
 			if (!@playing)
-				@gotoAndPlay(0)
+				@gotoAndPlay 0

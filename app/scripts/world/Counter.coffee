@@ -1,4 +1,4 @@
-define ['pixi'], ->
+define ["pixi"], ->
 
 	class Counter extends PIXI.Text
 		constructor: (@elements, @label) ->

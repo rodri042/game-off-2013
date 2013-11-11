@@ -1,4 +1,4 @@
-define ['pixi'], ->
+define ["pixi"], ->
 
 	class Game
 		constructor: (assetsToLoad, init) ->
