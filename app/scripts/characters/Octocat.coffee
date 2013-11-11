@@ -17,9 +17,12 @@ define ["characters/ClassicShape", "characters/Transformation"], (ClassicShape, 
 
 		morph: (newShape) =>
 			if (@transformingTo?) then return
-			@transformingTo = newShape
+			from = @shape.name
+			to = newShape.name
+			if (from == to) then return
 
-			@_changeShape new Transformation(@shape.name, newShape.name)
+			@transformingTo = newShape
+			@_changeShape new Transformation(from, to)
 
 			@shape
 				.start()
