@@ -1,4 +1,4 @@
-define ["characters/ClassicShape", "characters/Transformation"], (ClassicShape, Transformation) ->
+define ["characters/ClassicShape"], (ClassicShape) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
@@ -15,18 +15,11 @@ define ["characters/ClassicShape", "characters/Transformation"], (ClassicShape, 
 
 		morph: (newShape) =>
 			if (@transformingTo?) then return
-			from = @shape.name()
-			to = newShape.name()
-			if (from == to) then return
+			@shape.morphInto @, newShape
 
-			@transformingTo = newShape
-			@_changeShape new Transformation(from, to)
-
-			@shape
-				.start()
-				.done =>
-					@_changeShape @transformingTo
-					@transformingTo = null
+		finishTransformation: =>
+			@_changeShape @transformingTo
+			@transformingTo = null
 
 		_changeShape: (newShape) =>
 			@removeChild @shape
