@@ -1,14 +1,13 @@
-define [], ->
+define ["physics/Force"], (Force) ->
 
-	class Gravity
-		constructor: (@objectMass) ->
-			@resetTime()
+	class Gravity extends Force
+		constructor: (@object) ->
+			super()
+			
+		acceleration: => 1.5
 
-		acceleration: => 2
-
-		resetTime: => @elapsedTime = 0
-
-		timeHasPassed: => @elapsedTime++
-
-		speed: ->
-			@objectMass * @acceleration() * @elapsedTime
+		speed: =>
+			if @object.isFalling
+				@object.mass() * @acceleration() * @elapsedTime
+			else
+				0

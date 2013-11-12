@@ -1,36 +1,39 @@
-define ["characters/ClassicShape", "physics/Gravity", "utils/ArrayUtils"], (ClassicShape, Gravity) ->
+define ["characters/ClassicShape", "physics/Gravity", "physics/Force", "utils/ArrayUtils"], (ClassicShape, Gravity, Force) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
 			super()
 			@shape = new ClassicShape()
 			@addChild @shape
-			@forces = [ new Gravity @weight() ]
 			@isFalling = true
+			@gravity = new Gravity @
+
+		forces: =>
+			[ @gravity, @force || new Force(0) ]
 
 		render: => 
-			if @isFalling
-				@sufferFromGravityEffects()
-
+			@sufferFromGravityEffects()
 			@shape.render?()
 
 		sufferFromGravityEffects: =>
-			@forces.forEach (it) -> it.timeHasPassed()
-			@move 0, @forces.sum (it) -> it.speed()
+			@forces().forEach (it) -> it.timeHasPassed()
+			@move @forces().sum (it) -> it.speed()
 
-		moveRight: => @move @speed(), 0
-		moveLeft: => @move -@speed(), 0
+		moveRight: => @walk @speed()
+		moveLeft: => @walk -@speed()
 
-		weight: => .5
+		mass: => .5
 		speed: => 3
 
 		width: => @shape.width
 		height: => @shape.height
 
-		move: (x, y) =>
-			@position.x += x
-			@position.y += y
+		walk: (speed) =>
+			@position.x += speed
 			@shape.move?()
+
+		move: (y) =>
+			@position.y += y
 
 		morph: (newShape) =>
 			@shape.morphInto @, newShape
@@ -42,7 +45,13 @@ define ["characters/ClassicShape", "physics/Gravity", "utils/ArrayUtils"], (Clas
 
 		stopFalling: =>
 			@isFalling = false
-			@forces.forEach (it) -> it.resetTime()
+			@gravity.resetTime()
+
+		beginFalling: =>
+			@isFalling = true
 
 		jump: =>
-			@move 0, -3
+			@setForce new Force(-20)
+
+		setForce: (aForce) =>
+			@force = aForce
