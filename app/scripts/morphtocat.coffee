@@ -27,5 +27,4 @@ define ["engine/Game", "characters/Octocat", "characters/ClassicShape", "charact
 				"assets/sprites/classic.json",
 				"assets/sprites/rainbow.json",
 				"assets/sprites/classic-rainbow.json"
-				"assets/sprites/rainbow-classic.json"
 			]

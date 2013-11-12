@@ -1,8 +1,13 @@
 define ["engine/MovieClip"], (MovieClip) ->
 
 	class Transformation extends MovieClip
-		constructor: (from, to) ->	
-			super "#{from}-#{to}", 60
+		constructor: (from, to) ->
+			numberOfTextures = 60
+			try
+				super "#{from}-#{to}", numberOfTextures
+			catch reverseSpriteError
+				super "#{to}-#{from}", numberOfTextures, true
+
 			@play()
 
 		render: =>
