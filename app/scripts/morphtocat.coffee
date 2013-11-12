@@ -1,4 +1,4 @@
-define ["engine/Game", "characters/Octocat", "characters/ClassicShape", "characters/RainbowShape"], (Game, Octocat, ClassicShape, RainbowShape) ->
+define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicShape", "characters/RainbowShape"], (Game, World, Octocat, ClassicShape, RainbowShape) ->
 
 	class Morphtocat extends Game
 		constructor: (@stage) ->
@@ -6,6 +6,7 @@ define ["engine/Game", "characters/Octocat", "characters/ClassicShape", "charact
 				@init(); @gameLoop
 
 		init: =>
+			@stage.addChild new World()
 			@octocat = @stage.addChildCentered new Octocat()
 
 			keys = @stage.keys
@@ -24,7 +25,7 @@ define ["engine/Game", "characters/Octocat", "characters/ClassicShape", "charact
 			#código del juego
 
 		assets: => [
-				"assets/sprites/classic.json",
-				"assets/sprites/rainbow.json",
-				"assets/sprites/classic-rainbow.json"
-			]
+			"assets/sprites/classic.json",
+			"assets/sprites/rainbow.json",
+			"assets/sprites/classic-rainbow.json"
+		]
