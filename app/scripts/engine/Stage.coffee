@@ -1,4 +1,4 @@
-define ["jquery", "pixi", "utils/Keyboard", "world/Sky"], ($, _, Keyboard, Sky) ->
+define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 
 	class Stage extends PIXI.Stage
 		constructor: (@resolution, background) ->
@@ -6,7 +6,6 @@ define ["jquery", "pixi", "utils/Keyboard", "world/Sky"], ($, _, Keyboard, Sky) 
 
 			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
 			@keys = new Keyboard $(window)
-			@addChild new Sky()
 
 		center: (anObject) =>
 			anObject.position.x = @width() / 2
@@ -17,9 +16,6 @@ define ["jquery", "pixi", "utils/Keyboard", "world/Sky"], ($, _, Keyboard, Sky) 
 
 		render: =>
 			@keys.raiseEvents()
-
-			if (@collidesOnBottom @octocat)
-				@octocat.stopFalling()
 
 			@children.forEach (it) -> it.render?()
 			@renderer.render @
@@ -40,10 +36,6 @@ define ["jquery", "pixi", "utils/Keyboard", "world/Sky"], ($, _, Keyboard, Sky) 
 
 		collidesOnRight: (anObject) =>
 			anObject.position.x + anObject.width() / 2 > @position.x + @width()
-
-		addOctocat: (anOctocat) =>
-			@addChildCentered anOctocat
-			@octocat = anOctocat
 
 		view: => @renderer.view
 
