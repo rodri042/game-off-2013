@@ -13,17 +13,22 @@ define ["utils/ArrayUtils"], ->
 				@pressedKeys.remove key
 
 		raiseEvents: =>
-			_this = @
 			@pressedKeys.forEach (key) =>
-				handler = eval """_this["#{@keyCodeMap[key]}"]"""
-				handler?()
+				@_getHandlerFor(key)?()
 
-		_registerEvent: (register, handler) =>
+		_registerEvent: (register, pressingHandler) =>
+			_this = @
 			register.call @target, (event) =>
 				key = event.which
-				if @knownKeys.contains key.toString()
+				handler = @_getHandlerFor key
+
+				if handler?
 					event.preventDefault()
-					handler key
+					pressingHandler key
+
+		_getHandlerFor: (key) =>
+			_this = @
+			eval """_this["#{@keyCodeMap[key]}"]"""
 
 		_generateKeyCodeMap: =>
 			@keyCodeMap =
