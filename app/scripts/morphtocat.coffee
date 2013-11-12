@@ -14,6 +14,7 @@ define ["engine/Game", "world/Sky", "characters/Octocat", "characters/ClassicSha
 			keys.right = => @octocat.moveRight()
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
+			keys.space = => @octocat.jump()
 
 			@stage.addChild new PIXI.Text("Flechas, R, C", fill: "black")
 

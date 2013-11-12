@@ -1,10 +1,11 @@
-define ["characters/ClassicShape"], (ClassicShape) ->
+define ["characters/ClassicShape", "physics/Gravity"], (ClassicShape, Gravity) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
 			super()
 			@shape = new ClassicShape()
 			@addChild @shape
+			@gravity = new Gravity @weight()
 			@isFalling = true
 
 		render: => 
@@ -14,12 +15,13 @@ define ["characters/ClassicShape"], (ClassicShape) ->
 			@shape.render?()
 
 		sufferFromGravityEffects: =>
-			@move 0, @fallSpeed()
+			@gravity.timeHasPassed()
+			@move 0, @gravity.speed()
 
 		moveRight: => @move @speed(), 0
 		moveLeft: => @move -@speed(), 0
 
-		fallSpeed: => 4
+		weight: => .5
 		speed: => 3
 
 		width: => @shape.width
@@ -40,4 +42,7 @@ define ["characters/ClassicShape"], (ClassicShape) ->
 
 		stopFalling: =>
 			@isFalling = false
+			@gravity = new Gravity @weight()
 
+		jump: =>
+			@move 0, -3
