@@ -14,14 +14,9 @@ define ["characters/ClassicShape"], (ClassicShape) ->
 			@shape.move?()
 
 		morph: (newShape) =>
-			if (@transformingTo?) then return
 			@shape.morphInto @, newShape
 
-		finishTransformation: =>
-			@_changeShape @transformingTo
-			@transformingTo = null
-
-		_changeShape: (newShape) =>
+		setShape: (newShape) =>
 			@removeChild @shape
 			@shape = newShape
 			@addChild @shape

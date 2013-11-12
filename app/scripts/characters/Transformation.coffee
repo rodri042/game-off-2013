@@ -1,14 +1,16 @@
 define ["engine/MovieClip"], (MovieClip) ->
 
 	class Transformation extends MovieClip
-		constructor: (from, to) ->
+		constructor: (octocat, from, to) ->
 			numberOfTextures = 60
 			try
-				super "#{from}-#{to}", numberOfTextures
+				super "#{from.name()}-#{to.name()}", numberOfTextures
 			catch reverseSpriteError
-				super "#{to}-#{from}", numberOfTextures, true
+				super "#{to.name()}-#{from.name()}", numberOfTextures, true
 
-			@play()
+			@start().done => octocat.setShape to
+
+		morphInto: (octocat, newShape) =>
 
 		render: =>
 			if (!@playing)

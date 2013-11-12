@@ -10,15 +10,7 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 
 		morphInto: (octocat, newShape) =>
 			if (@equals newShape) then return
-
-			octocat.transformingTo = newShape
-
-			transformation = new Transformation(@name(), newShape.name())
-
-			octocat._changeShape transformation
-
-			transformation.start()
-				.done => octocat.finishTransformation()
+			octocat.setShape new Transformation(octocat, @, newShape)
 
 		equals: (anotherShape) =>
 			@name() == anotherShape.name()
