@@ -1,7 +1,5 @@
 define ["characters/Shape"], (Shape) ->
 
 	class ClassicShape extends Shape
-		constructor: ->
-			super()
-
+		name: => "classic"
 		numberOfTextures: => 19

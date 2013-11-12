@@ -283,7 +283,6 @@ module.exports = function (grunt) {
                         'assets/**/*',
                         'styles/fonts/{,*/}*.*',
                         'bower_components/sass-bootstrap/fonts/*.*',
-                        'bower_components/pixi/bin/pixi.js'
                     ]
                 },
                 {

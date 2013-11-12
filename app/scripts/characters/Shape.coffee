@@ -2,11 +2,7 @@ define ["engine/MovieClip"], (MovieClip) ->
 
 	class Shape extends MovieClip
 		constructor: ->
-			@name = @constructor.name
-				.replace("Shape", "")
-				.toLowerCase()
-				
-			super @name, @numberOfTextures()
+			super @name(), @numberOfTextures()
 
 		move: =>
 			if (!@playing)

@@ -1,7 +1,5 @@
 define ["characters/Shape"], (Shape) ->
 
 	class RainbowShape extends Shape
-		constructor: ->
-			super()
-
+		name: => "rainbow"
 		numberOfTextures: => 19
