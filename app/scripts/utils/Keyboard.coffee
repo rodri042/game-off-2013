@@ -3,7 +3,6 @@ define ["utils/ArrayUtils"], ->
 	class Keyboard
 		constructor: (@target) ->
 			@_generateKeyCodeMap()
-			@_generateKnownKeys()
 			@pressedKeys = []
 
 			@_registerEvent target.keydown, (key) =>
@@ -42,8 +41,3 @@ define ["utils/ArrayUtils"], ->
 
 			[48..90].forEach (code) =>
 				@keyCodeMap[code] = String.fromCharCode(code).toLowerCase()
-
-		_generateKnownKeys: =>
-			@knownKeys = []
-			for index of @keyCodeMap
-				@knownKeys.push index
