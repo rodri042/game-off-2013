@@ -6,8 +6,6 @@ define ["characters/ClassicShape", "characters/Transformation"], (ClassicShape, 
 			@shape = new ClassicShape()
 			@addChild @shape
 
-			@transformingTo = null
-
 		render: => @shape.render?()
 
 		move: (x, y) =>
