@@ -2,9 +2,11 @@ define [], ->
 
 	class Gravity
 		constructor: (@objectMass) ->
-			@elapsedTime = 0
+			@resetTime()
 
 		acceleration: => 2
+
+		resetTime: => @elapsedTime = 0
 
 		timeHasPassed: => @elapsedTime++
 

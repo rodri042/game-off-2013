@@ -10,3 +10,6 @@ define [], ->
 	Array::remove = (item) ->
 		index = @indexOf item
 		@splice index, 1
+
+	Array::sum = (transformation) ->
+		@reduce ((acum, elem) -> acum + transformation elem), 0
