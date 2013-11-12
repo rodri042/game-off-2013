@@ -10,10 +10,8 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 			@octocat = @stage.addChildCentered new Octocat()
 
 			keys = @stage.keys
-			keys.left = => @octocat.move -3, 0
-			keys.right = => @octocat.move 3, 0
-			keys.up = => @octocat.move 0, -3
-			keys.down = => @octocat.move 0, 3
+			keys.left = => @octocat.moveLeft()
+			keys.right = => @octocat.moveRight()
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
 

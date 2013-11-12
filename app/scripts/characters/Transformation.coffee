@@ -8,14 +8,14 @@ define ["engine/MovieClip"], (MovieClip) ->
 			catch reverseSpriteError
 				super "#{to.name()}-#{from.name()}", numberOfTextures, true
 
-			@start().done => octocat.setShape to
+			@beginTransformation().done => octocat.setShape to
 
-		morphInto: (octocat, newShape) =>
+		morphInto: (octocat, newShape) => # you can't morph to another shape right now!
 
 		render: =>
 			if (!@playing)
 				@endPromise?.resolve()
 
-		start: =>
+		beginTransformation: =>
 			@play()
 			@endPromise = $.Deferred()
