@@ -14,8 +14,9 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 			keys.right = => @octocat.moveRight()
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
+			keys.space = => @octocat.jump()
 
-			@stage.addChild new PIXI.Text("Flechas, R, C", fill: "black")
+			@stage.addChild new PIXI.Text("Flechas, Espacio, R, C", fill: "black")
 
 		gameLoop: =>
 			@stage.render()
@@ -24,6 +25,8 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 
 			if (@stage.collidesOnBottom @octocat)
 				@octocat.stopFalling()
+			else
+				@octocat.beginFalling()
 
 		assets: => [
 			"assets/sprites/classic.json",
