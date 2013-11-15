@@ -1,8 +1,15 @@
 define ["engine/TilingSprite"], (TilingSprite) ->
 
 	class World extends TilingSprite
-		constructor: (@resolution) ->
+		constructor: (@resolution, @octocat) ->
 			super "../assets/world/night-long.jpg", @resolution.width, @resolution.height
 
+			@_updateOctocatPosition()
+
 		render: =>
-			@tilePosition.x--
+			deltaX = @octocat.position.x - @octocatPosition
+			@tilePosition.x -= deltaX
+			@_updateOctocatPosition()
+
+		_updateOctocatPosition: =>
+			@octocatPosition = @octocat.position.x
