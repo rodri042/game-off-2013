@@ -16,3 +16,6 @@ define [], ->
 
 	Array::sum = (transformation) ->
 		@reduce ((acum, elem) -> acum + transformation elem), 0
+
+	Array::first = (criteria) ->
+		@filter(criteria)[0]

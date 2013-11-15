@@ -20,12 +20,6 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape"], (G
 		gameLoop: =>
 			@world.render()
 
-			#game logic
-
-			if (@world.collidesOnBottom @octocat)
-				@world.placeOnFloor @octocat
-				@octocat.isNotJumpingAnymore()
-
 		assets: => [
 			"assets/sprites/classic.json"
 			"assets/sprites/rainbow.json"

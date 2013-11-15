@@ -3,6 +3,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
 			super()
+			@position.x = @position.y = 100
 			@shape = new ClassicShape()
 			@addChild @shape
 			@speedY = 0
@@ -49,3 +50,5 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 		isNotJumpingAnymore: =>
 			@speedY = 0
 			@isJumping = false
+
+		isGoingUp: => @speedY < 0
