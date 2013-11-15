@@ -55,6 +55,6 @@ require.config
 require ["engine/Resolution", "engine/Stage", "morphtocat"], (Resolution, Stage, Morphtocat) ->
 	"use strict"
 	
-	stage = new Stage new Resolution(1000, 600), 0x6B56A6
+	stage = new Stage new Resolution(1000, 512), 0x6B56A6
 	$("#game").append stage.view()
 	window.morphtocat = new Morphtocat stage
