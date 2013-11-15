@@ -14,7 +14,7 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			anObject
 
 		width: -> @renderer.width
-		height: -> @renderer.height		
+		height: -> @renderer.height
 
 		render: =>
 			@keys.raiseEvents()
@@ -27,17 +27,20 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			@addChild aChild
 			aChild
 
+		collidesOnTop: (anObject) =>
+			anObject.position.y - anObject.height() / 2 < @position.y
+
+		collidesOnBottom: (anObject) =>
+			anObject.position.y + anObject.height() / 2 > @position.y + @height()
+
 		collidesOnLeft: (anObject) =>
 			anObject.position.x - anObject.width() / 2 < @position.x
 
-		collidesOnTop: (anObject) =>
-			anObject.position.y - anObject.width() / 2 < @position.y
-
-		collidesOnBottom: (anObject) =>
-			anObject.position.y + anObject.width() / 2 > @position.y + @height()
-
 		collidesOnRight: (anObject) =>
 			anObject.position.x + anObject.width() / 2 > @position.x + @width()
+
+		placeOnFloor: (anObject) =>
+			anObject.position.y = @height() - anObject.height() / 2
 
 		view: => @renderer.view
 

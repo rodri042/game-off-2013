@@ -25,9 +25,8 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 			#game logic
 
 			if (@stage.collidesOnBottom @octocat)
-				@octocat.stopFalling()
-			else
-				@octocat.beginFalling()
+				@stage.placeOnFloor @octocat
+				@octocat.isNotJumpingAnymore()
 
 		assets: => [
 			"assets/sprites/classic.json"

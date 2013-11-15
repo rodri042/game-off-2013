@@ -11,5 +11,8 @@ define [], ->
 		index = @indexOf item
 		@splice index, 1
 
+	Array::isEmpty = ->
+		@length == 0
+
 	Array::sum = (transformation) ->
 		@reduce ((acum, elem) -> acum + transformation elem), 0
