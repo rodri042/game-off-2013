@@ -1,0 +1,20 @@
+{"frames": {
+
+"night-long.png":
+{
+	"frame": {"x":0,"y":0,"w":2048,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":2048,"h":512},
+	"sourceSize": {"w":2048,"h":512}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "night-long.png",
+	"format": "RGBA8888",
+	"size": {"w":2048,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a5b892aa2cbbe734d96e45c2564b5d2d:cf120bbe227c9481f47556ba812bcc7c:b6e6829d4fb440f684eeddd6b714fe28$"
+}
+}

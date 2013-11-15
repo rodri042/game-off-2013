@@ -30,7 +30,8 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 				@octocat.beginFalling()
 
 		assets: => [
-			"assets/sprites/classic.json",
-			"assets/sprites/rainbow.json",
+			"assets/sprites/classic.json"
+			"assets/sprites/rainbow.json"
 			"assets/sprites/classic-rainbow.json"
+			"assets/world/night-long.json"
 		]

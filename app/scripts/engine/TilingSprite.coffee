@@ -1,6 +1,6 @@
 define ["pixi"], ->
 
 	class TilingSprite extends PIXI.TilingSprite
-		constructor: (textureUrl, width, height) ->
-			texture = PIXI.Texture.fromImage textureUrl
+		constructor: (textureName, width, height) ->
+			texture = PIXI.Texture.fromFrame textureName
 			super texture, width, height
