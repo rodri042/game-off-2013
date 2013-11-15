@@ -1,12 +1,28 @@
-define ["engine/TilingSprite"], (TilingSprite) ->
+define ["engine/Stage", "engine/Sprite", "world/Sky", "characters/Octocat"], (Stage, Sprite, Sky, Octocat) ->
 
-	class World extends TilingSprite
-		constructor: (@resolution, @octocat) ->
-			super "night-long.png", @resolution.width, @resolution.height
+	class World extends Stage
+		constructor: (resolution, background) ->
+			super resolution, background
+			@staticObjects = []
 
-			@octocatPosition = @octocat.position.x
+		init: =>
+			@octocat = @stage.center new Octocat(), 20
 
-		render: =>
-			deltaX = @octocat.position.x - @octocatPosition
-			@tilePosition.x -= deltaX
-			@octocat.position.x = @octocatPosition
+			@_createSky()
+			@_addPlatform()
+			@_addOctocat()
+
+			@octocat
+
+		addStaticObject: (anObject) =>
+			@addChildCentered anObject
+			@staticObjects.push anObject
+
+		_createSky: =>
+			@addChild new Sky(@resolution, @octocat, @staticObjects)
+
+		_addOctocat: =>
+			@addChildAt @octocat, 1
+
+		_addPlatform: =>
+			@addStaticObject new Sprite("assets/world/platform.png")

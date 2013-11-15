@@ -22,6 +22,10 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			@children.forEach (it) -> it.render?()
 			@renderer.render @
 
+		addChild: (aChild) =>
+			super aChild
+			aChild
+
 		addChildCentered: (aChild, xPercent) =>
 			@center aChild, xPercent
 			@addChild aChild

@@ -1,31 +1,29 @@
-define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicShape", "characters/RainbowShape"], (Game, World, Octocat, ClassicShape, RainbowShape) ->
+define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape"], (Game, ClassicShape, RainbowShape) ->
 
 	class Morphtocat extends Game
-		constructor: (@stage) ->
+		constructor: (@world) ->
 			super @assets(), =>
 				@init(); @gameLoop
 
 		init: =>
-			@octocat = @stage.center new Octocat(), 20
-			@world = @stage.addChild new World(@stage.resolution, @octocat)
-			@stage.addChildAt @octocat, 1
+			@octocat = @world.init()
 
-			keys = @stage.keys
+			keys = @world.keys
 			keys.left = => @octocat.moveLeft()
 			keys.right = => @octocat.moveRight()
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
 			keys.space = => @octocat.jump()
 
-			@stage.addChild new PIXI.Text("Flechas, Espacio, R, C", fill: "black")
+			@world.addChild new PIXI.Text("Flechas, Espacio, R, C", fill: "black")
 
 		gameLoop: =>
-			@stage.render()
+			@world.render()
 
 			#game logic
 
-			if (@stage.collidesOnBottom @octocat)
-				@stage.placeOnFloor @octocat
+			if (@world.collidesOnBottom @octocat)
+				@world.placeOnFloor @octocat
 				@octocat.isNotJumpingAnymore()
 
 		assets: => [
