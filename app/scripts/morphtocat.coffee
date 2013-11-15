@@ -6,9 +6,9 @@ define ["engine/Game", "world/World", "characters/Octocat", "characters/ClassicS
 				@init(); @gameLoop
 
 		init: =>
-			@octocat = new Octocat()
+			@octocat = @stage.center new Octocat(), 20
 			@world = @stage.addChild new World(@stage.resolution, @octocat)
-			@stage.addChildCentered @octocat
+			@stage.addChildAt @octocat, 1
 
 			keys = @stage.keys
 			keys.left = => @octocat.moveLeft()

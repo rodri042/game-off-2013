@@ -7,9 +7,11 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
 			@keys = new Keyboard $(window)
 
-		center: (anObject) =>
-			anObject.position.x = @width() / 2
+		center: (anObject, xPercent) =>
+			xPercent = xPercent || 50
+			anObject.position.x = @width() * xPercent / 100
 			anObject.position.y = @height() / 2
+			anObject
 
 		width: -> @renderer.width
 		height: -> @renderer.height		
@@ -20,8 +22,8 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			@children.forEach (it) -> it.render?()
 			@renderer.render @
 
-		addChildCentered: (aChild) =>
-			@center aChild
+		addChildCentered: (aChild, xPercent) =>
+			@center aChild, xPercent
 			@addChild aChild
 			aChild
 
