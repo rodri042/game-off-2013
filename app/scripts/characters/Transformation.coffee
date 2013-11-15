@@ -1,7 +1,7 @@
 define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
 
 	class Transformation extends MovieClip
-		constructor: (octocat, from, to) ->
+		constructor: (octocat, @from, @to) ->
 			numberOfTextures = 60
 			try
 				super "#{from.name()}-#{to.name()}", numberOfTextures
@@ -11,6 +11,8 @@ define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
 			@_beginTransformation().done => octocat.setShape to
 
 		morphInto: (octocat, newShape) => # you can't morph to another shape right now!
+
+		jumpingSpeed: => @from.jumpingSpeed()
 
 		render: =>
 			if (!@playing)

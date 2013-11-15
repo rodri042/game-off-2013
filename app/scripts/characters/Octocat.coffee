@@ -38,7 +38,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape = newShape
 			@addChild @shape
 
-		jumpingSpeed: => -15
+		jumpingSpeed: => @shape.jumpingSpeed()
 
 		jump: =>
 			if @isJumping then return
