@@ -21,7 +21,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape.render?()
 
 		moveLeft: => @_walk -@speed()
-		
+
 		moveRight: => @_walk @speed()
 
 		move: (y) =>
@@ -52,4 +52,3 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 		_sufferFromGravityEffects: =>
 			@speedY += PhysicConstants.gravitySpeed()
 			@move @speedY
-

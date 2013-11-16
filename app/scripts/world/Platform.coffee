@@ -1,6 +1,12 @@
-define ['engine/Sprite'], (Sprite) ->
+define ["engine/Sprite"], (Sprite) ->
 
 	class Platform extends Sprite
+		constructor: (textureName, x, y) ->
+			super textureName
+			@position.y = y
+			@relativePosition = @position
+			@absolutePosition = x: x, y: y
+
 		#methods
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @position.y - anObject.height() / 2
