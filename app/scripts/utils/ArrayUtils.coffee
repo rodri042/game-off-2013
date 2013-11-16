@@ -1,4 +1,5 @@
 define [], ->
+	isAFunction = (obj) -> typeof obj == "function"
 
 	Array::contains = (item) ->
 		@indexOf(item) >= 0
@@ -15,7 +16,9 @@ define [], ->
 		@length == 0
 
 	Array::sum = (transformation) ->
+		if !isAFunction transformation then return
 		@reduce ((acum, elem) -> acum + transformation elem), 0
 
 	Array::first = (criteria) ->
+		if !isAFunction criteria then return
 		@filter(criteria)[0]
