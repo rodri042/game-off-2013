@@ -10,9 +10,11 @@ define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
 
 			@_beginTransformation().done => octocat.setShape to
 
-		morphInto: (octocat, newShape) => # you can't morph to another shape right now!
-
+		#properties
 		jumpingSpeed: => @from.jumpingSpeed()
+
+		#methods
+		morphInto: (octocat, newShape) => # you can't morph to another shape right now!
 
 		render: =>
 			if (!@playing)

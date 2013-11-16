@@ -6,6 +6,7 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 
 			@octocatPosition = @octocat.position.x
 
+		#methods
 		render: =>
 			deltaX = @octocat.position.x - @octocatPosition
 			@tilePosition.x -= deltaX

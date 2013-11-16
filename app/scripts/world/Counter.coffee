@@ -5,6 +5,8 @@ define ["pixi"], ->
 			super label, fill: "black"
 			@position.x = @position.y = 8
 
-		render: => @setText @label + @count()
-		
+		#properties
 		count: => @elements.length
+
+		#methods
+		render: => @setText @label + @count()

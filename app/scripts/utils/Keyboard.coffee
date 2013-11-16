@@ -11,6 +11,7 @@ define ["utils/ArrayUtils"], ->
 			@_registerEvent target.keyup, (key) =>
 				@pressedKeys.remove key
 
+		#methods
 		raiseEvents: =>
 			@pressedKeys.forEach (key) =>
 				@_getHandlerFor(key)?()

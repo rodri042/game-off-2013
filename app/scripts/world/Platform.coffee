@@ -1,6 +1,7 @@
 define ['engine/Sprite'], (Sprite) ->
 
 	class Platform extends Sprite
+		#methods
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @position.y - anObject.height() / 2
 

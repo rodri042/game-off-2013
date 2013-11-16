@@ -5,12 +5,12 @@ define ["pixi", "utils/Randomizer"], (_, Randomizer) ->
 			texture = PIXI.Texture.fromImage("../assets/sprites/octoball.png")
 			super texture		
 
-			# rotate around center
 			@anchor.x = 0.5
 			@anchor.y = 0.5
 
 			@_randomizeSpeed()
 
+		#methods
 		render: =>
 			@_rotateLeft()
 			@_move()		

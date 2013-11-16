@@ -7,14 +7,17 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
 			@keys = new Keyboard $(window)
 
+		#properties
+		width: => @renderer.width
+		height: => @renderer.height
+		view: => @renderer.view
+
+		#methods
 		center: (anObject, xPercent) =>
 			xPercent = xPercent || 50
 			anObject.position.x = @width() * xPercent / 100
 			anObject.position.y = @height() / 2
 			anObject
-
-		width: -> @renderer.width
-		height: -> @renderer.height
 
 		render: =>
 			@keys.raiseEvents()
@@ -45,8 +48,6 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @height() - anObject.height() / 2
-
-		view: => @renderer.view
 
 		onClick: (action) =>
 			$(@view()).click action

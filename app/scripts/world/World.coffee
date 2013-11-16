@@ -5,6 +5,7 @@ define ["engine/Stage", "world/Platform", "world/Sky", "characters/Octocat", "ut
 			super resolution, background
 			@staticObjects = []
 
+		#methods
 		init: =>
 			@octocat = new Octocat()
 
@@ -21,10 +22,10 @@ define ["engine/Stage", "world/Platform", "world/Sky", "characters/Octocat", "ut
 
 			if currentPlatform?
 				currentPlatform.placeOnFloor @octocat
-				@octocat.isNotJumpingAnymore()
+				@octocat.stopJump()
 
 		isStandingOnSomething: (anObject) =>
-			if (@collidesOnBottom @octocat) then return @
+			if @collidesOnBottom @octocat then return @
 			@staticObjects.first (it) => it.isOnTop @octocat
 
 		addStaticObject: (anObject) =>

@@ -4,6 +4,7 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 		constructor: ->
 			super @name(), @numberOfTextures()
 
+		#methods
 		move: =>
 			if (!@playing)
 				@gotoAndPlay 0
@@ -14,6 +15,9 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 
 		equals: (anotherShape) =>
 			@name() == anotherShape.name()
+
+		#<<template method>>
+		name: =>
 
 		#<<template method>>
 		numberOfTextures: =>

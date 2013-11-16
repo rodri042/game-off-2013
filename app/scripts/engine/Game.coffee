@@ -9,6 +9,7 @@ define ["pixi"], ->
 				
 			loader.load()
 
+		#methods
 		start: (render) =>
 			gameLoop = =>
 			  requestAnimFrame gameLoop
