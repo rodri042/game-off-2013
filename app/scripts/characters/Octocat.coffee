@@ -19,8 +19,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 
 		#methods
 		render: =>
-			if !@currentPlatform?
-				@_sufferFromGravityEffects()
+			@_sufferFromGravityEffects()
 			@shape.render?()
 
 		moveLeft: => @_walk -@speed()

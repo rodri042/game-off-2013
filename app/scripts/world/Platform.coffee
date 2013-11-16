@@ -6,7 +6,10 @@ define ["engine/Sprite"], (Sprite) ->
 			@position.y = y
 			@relativePosition = @position
 			@absolutePosition = x: x, y: y
-			#anchor.x = 0.5 SACAR ESTE HACK
+			@anchor.x = 0.5
+
+		#properties
+		cornerX: => @position.x - @width * @anchor.x
 
 		#methods
 		placeOnFloor: (anObject) =>
@@ -16,13 +19,12 @@ define ["engine/Sprite"], (Sprite) ->
 			@_collidesOnX(anObject) && @_isTouchingSurface(anObject) && not anObject.isGoingUp()
 
 		_collidesOnX: (anObject) =>
-			#@position.x - @width / 2 < anObject.position.x < @position.x + @width / 2
-			@position.x < anObject.position.x < @position.x + @width
+			@cornerX() < anObject.position.x < @cornerX() + @width
 
 		_isTouchingSurface: (anObject) =>
 			expectedY = @_calculateY anObject
 
-			delta = 5
+			delta = 8
 			expectedY - delta < anObject.position.y < expectedY + delta
 
 		_calculateY: (anObject) =>
