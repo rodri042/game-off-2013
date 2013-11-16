@@ -11,6 +11,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape"], (G
 			"assets/sprites/rainbow.json"
 			"assets/sprites/classic-rainbow.json"
 			"assets/world/night-long.json"
+			"assets/world/platform.json"
 		]
 
 		#methods

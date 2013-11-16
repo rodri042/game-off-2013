@@ -38,7 +38,7 @@ define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octoc
 			@sky.goTo 200
 
 		_addPlatform: =>
-			plataform = new RotatingPlatform("assets/world/platform.png", 310, 111 + 200)
+			plataform = new RotatingPlatform("platform.png", 310, 111 + 200)
 			@addStaticObject plataform, 1
 
 		_addOctocat: =>
