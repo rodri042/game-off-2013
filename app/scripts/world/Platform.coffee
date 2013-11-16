@@ -15,7 +15,7 @@ define ["engine/Sprite"], (Sprite) ->
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @_calculateY anObject
 
-		isOnTop: (anObject) =>
+		isOnPlatform: (anObject) =>
 			@_collidesOnX(anObject) && @_isTouchingSurface(anObject) && not anObject.isGoingUp()
 
 		_collidesOnX: (anObject) =>

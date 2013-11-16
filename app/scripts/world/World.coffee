@@ -18,15 +18,15 @@ define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octoc
 		render: =>
 			super()
 
-			currentPlatform = @isStandingOnSomething @octocat
+			currentPlatform = @currentPlatform @octocat
 			@octocat.isInAir !currentPlatform?
 
 			if currentPlatform?
 				currentPlatform.placeOnFloor @octocat
 
-		isStandingOnSomething: (anObject) =>
+		currentPlatform: (anObject) =>
 			if @collidesOnBottom @octocat then return @
-			@staticObjects.findOne (it) => it.isOnTop @octocat 
+			@staticObjects.findOne (it) => it.isOnPlatform @octocat 
 
 		addStaticObject: (anObject, zIndex) =>
 			@addChildAt anObject, zIndex
