@@ -33,3 +33,4 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape"], (G
 			keys.r = => @octocat.morph new RainbowShape()
 			keys.c = => @octocat.morph new ClassicShape()
 			keys.space = => @octocat.jump()
+			keys.d = => morphtocat.world.staticObjects.first().placeOnFloor(morphtocat.octocat) #SACAR ESTE HACK

@@ -3,7 +3,9 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
 			super()
-			@position.x = @position.y = 100
+			@absolutePosition = x: 0, y: 0
+			@_move 100, 100
+
 			@shape = new ClassicShape()
 			@addChild @shape
 			@speedY = 0
@@ -17,15 +19,13 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 
 		#methods
 		render: =>
-			@_sufferFromGravityEffects()
+			if !@currentPlatform?
+				@_sufferFromGravityEffects()
 			@shape.render?()
 
 		moveLeft: => @_walk -@speed()
 
 		moveRight: => @_walk @speed()
-
-		move: (y) =>
-			@position.y += y
 
 		jump: =>
 			if @isJumping then return
@@ -33,7 +33,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@speedY += @jumpingSpeed()
 			@isJumping = true
 
-		stopJump: =>
+		isNotJumpingAnymore: =>
 			@speedY = 0
 			@isJumping = false
 
@@ -45,10 +45,15 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape = newShape
 			@addChild @shape
 
+		_move: (x, y) =>
+			y = y || 0
+			@position.x += x; @position.y += y
+			@absolutePosition.x += x; @absolutePosition.y += y
+
 		_walk: (speed) =>
-			@position.x += speed
+			@_move speed, 0
 			@shape.move?()
 
 		_sufferFromGravityEffects: =>
 			@speedY += PhysicConstants.gravitySpeed()
-			@move @speedY
+			@_move 0, @speedY
