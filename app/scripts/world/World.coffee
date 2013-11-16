@@ -26,7 +26,7 @@ define ["engine/Stage", "world/Platform", "world/Sky", "characters/Octocat", "ut
 
 		isStandingOnSomething: (anObject) =>
 			if @collidesOnBottom @octocat then return @
-			@staticObjects.first (it) => it.isOnTop @octocat
+			@staticObjects.findOne (it) => it.isOnTop @octocat
 
 		addStaticObject: (anObject) =>
 			@addChildCentered anObject
