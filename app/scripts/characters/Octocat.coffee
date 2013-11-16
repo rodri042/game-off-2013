@@ -9,6 +9,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape = new ClassicShape()
 			@addChild @shape
 			@speedY = 0
+			@_isInAir = true
 
 		#properties
 		speed: => 3
@@ -16,6 +17,13 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 		height: => @shape.height
 		jumpingSpeed: => @shape.jumpingSpeed()
 		isGoingUp: => @speedY < 0
+		isInAir: (air) =>
+			if air? #setter
+				@_isInAir = air
+				if !air
+					@speedY = 0
+			else #getter
+				@_isInAir
 
 		#methods
 		render: =>
@@ -27,14 +35,9 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 		moveRight: => @_walk @speed()
 
 		jump: =>
-			if @isJumping then return
+			if @isInAir() then return
 
 			@speedY += @jumpingSpeed()
-			@isJumping = true
-
-		isNotJumpingAnymore: =>
-			@speedY = 0
-			@isJumping = false
 
 		morph: (newShape) =>
 			@shape.morphInto @, newShape

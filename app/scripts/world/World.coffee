@@ -19,11 +19,10 @@ define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octoc
 			super()
 
 			currentPlatform = @isStandingOnSomething @octocat
-			@octocat.currentPlatform = currentPlatform
+			@octocat.isInAir !currentPlatform?
 
 			if currentPlatform?
 				currentPlatform.placeOnFloor @octocat
-				@octocat.isNotJumpingAnymore()
 
 		isStandingOnSomething: (anObject) =>
 			if @collidesOnBottom @octocat then return @
