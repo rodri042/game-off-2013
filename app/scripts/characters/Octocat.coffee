@@ -12,10 +12,10 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@_isInAir = true
 
 		#properties
-		speed: => 3
+		speed: => @shape.speed?() || 3
 		width: => @shape.width
 		height: => @shape.height
-		jumpingSpeed: => @shape.jumpingSpeed()
+		jumpingSpeed: => @shape.jumpingSpeed?() || -15
 		isGoingUp: => @speedY < 0
 		isInAir: (air) =>
 			if air? #setter

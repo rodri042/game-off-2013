@@ -4,4 +4,3 @@ define ["characters/Shape"], (Shape) ->
 		#properties
 		name: => "classic"
 		numberOfTextures: => 19
-		jumpingSpeed: => -15
