@@ -4,4 +4,4 @@ define ["characters/Shape"], (Shape) ->
 		#properties
 		name: => "dojocat"
 		numberOfTextures: => 19
-		speed: => 8
+		speed: => super() + 5

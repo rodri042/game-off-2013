@@ -5,8 +5,8 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 			super @name(), @numberOfTextures()
 
 		#properties
-		jumpingSpeed: => -15
 		speed: => 3
+		jumpingSpeed: => -15
 
 		#methods
 		move: =>

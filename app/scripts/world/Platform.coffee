@@ -24,7 +24,7 @@ define ["engine/Sprite"], (Sprite) ->
 		_isTouchingSurface: (anObject) =>
 			expectedY = @_calculateY anObject
 
-			delta = 8
+			delta = 10
 			expectedY - delta < anObject.position.y < expectedY + delta
 
 		_calculateY: (anObject) =>
