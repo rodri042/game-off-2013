@@ -11,6 +11,7 @@ define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
 			@_beginTransformation().done => octocat.setShape to
 
 		#properties
+		speed: => @from.speed()
 		jumpingSpeed: => @from.jumpingSpeed()
 
 		#methods

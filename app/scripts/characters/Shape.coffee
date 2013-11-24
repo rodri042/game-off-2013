@@ -4,6 +4,10 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 		constructor: ->
 			super @name(), @numberOfTextures()
 
+		#properties
+		jumpingSpeed: => -15
+		speed: => 3
+
 		#methods
 		move: =>
 			if (!@playing)
