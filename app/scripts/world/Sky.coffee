@@ -15,3 +15,5 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 			@octocat.position.x = @octocatPosition
 
 		goTo: (positionX) => @tilePosition.x = positionX
+
+		goLeft: => @tilePosition.x--

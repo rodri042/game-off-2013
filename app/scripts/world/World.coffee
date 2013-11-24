@@ -1,4 +1,4 @@
-define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octocat", "utils/ArrayUtils"], (Stage, RotatingPlatform, Sky, Octocat) ->
+define ["engine/Stage", "world/Platform", "world/Sky", "characters/Octocat", "utils/ArrayUtils"], (Stage, Platform, Sky, Octocat) ->
 
 	class World extends Stage
 		constructor: (resolution, background) ->
@@ -24,6 +24,8 @@ define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octoc
 			if currentPlatform?
 				currentPlatform.placeOnFloor @octocat
 
+			#@sky.goLeft()
+
 		currentPlatformOf: (anObject) =>
 			if @collidesOnBottom @octocat then return @
 			@staticObjects.findOne (it) => it.isOnPlatform @octocat 
@@ -38,8 +40,9 @@ define ["engine/Stage", "world/RotatingPlatform", "world/Sky", "characters/Octoc
 			@sky.goTo 200
 
 		_addPlatform: =>
-			plataform = new RotatingPlatform("platform.png", 310, 111 + 200)
-			@addStaticObject plataform, 1
+			platform = new Platform("platform.png", 310, 111 + 200)
+			platform.rotation = 0.2
+			@addStaticObject platform, 1
 
 		_addOctocat: =>
 			@addChildAt @octocat, 2
