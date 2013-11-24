@@ -4,5 +4,5 @@ define ["characters/Shape"], (Shape) ->
 		#properties
 		name: => "rainbow"
 		numberOfTextures: => 19
-		speed: => super() + 1
+		speed: => super() + 2
 		jumpingSpeed: => super() - 5
