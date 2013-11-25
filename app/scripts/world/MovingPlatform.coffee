@@ -1,0 +1,25 @@
+define ["world/Platform"], (Platform) ->
+
+	class MovingPlatform extends Platform
+		constructor: (x, y) ->
+			super "ruby-platform.png", x, y
+			@displacement = 0
+			@direction = 1
+
+		maximumDisplacement: => 200
+		
+		speed: => 3
+
+		currentSpeed: => @speed() * @direction
+
+		flip: => @direction *= -1
+
+		render: =>
+			if @displacement >= @maximumDisplacement()
+				@flip()
+
+			if @displacement <= -@maximumDisplacement()
+				@flip()
+
+			@absolutePosition.x += @currentSpeed()
+			@displacement += @currentSpeed()

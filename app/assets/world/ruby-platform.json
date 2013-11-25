@@ -1,0 +1,20 @@
+{"frames": {
+
+"ruby-platform.png":
+{
+	"frame": {"x":2,"y":2,"w":288,"h":214},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":288,"h":214},
+	"sourceSize": {"w":288,"h":214}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "ruby-platform.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:62d79a6fd3811c6498c9048b1ed3a85b:fccf479c08277e96f7d63cea7d2dcd70:dcf48c7151f7cba915b121e7a71582f9$"
+}
+}

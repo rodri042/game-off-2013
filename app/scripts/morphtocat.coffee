@@ -15,6 +15,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			"assets/sprites/rainbow-dojocat.json"
 			"assets/world/night-long.json"
 			"assets/world/platform.json"
+			"assets/world/ruby-platform.json"
 		]
 
 		#methods
@@ -22,7 +23,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@octocat = @world.init()
 
 			@_bindKeys()
-		
+
 			@world.addChild new PIXI.Text("Flechas, Espacio, C, R, D", fill: "black")
 
 		gameLoop: =>
