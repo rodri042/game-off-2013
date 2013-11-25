@@ -10,5 +10,4 @@ define ["pixi", "utils/NumberUtils"], ->
 			super textures
 
 			@anchor.x = 0.5
-			@anchor.y = 0.5
 			@loop = false

@@ -38,7 +38,7 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			anObject.position.y - anObject.height() / 2 < @position.y
 
 		collidesOnBottom: (anObject) =>
-			anObject.position.y + anObject.height() / 2 > @position.y + @height()
+			anObject.position.y + anObject.height() > @position.y + @height()
 
 		collidesOnLeft: (anObject) =>
 			anObject.position.x - anObject.width() / 2 < @position.x
@@ -47,7 +47,7 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, _, Keyboard) ->
 			anObject.position.x + anObject.width() / 2 > @position.x + @width()
 
 		placeOnFloor: (anObject) =>
-			anObject.position.y = @height() - anObject.height() / 2
+			anObject.position.y = @height() - anObject.height()
 
 		onClick: (action) =>
 			$(@view()).click action
