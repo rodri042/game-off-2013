@@ -45,7 +45,7 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 			@addStaticObject platform, 1
 
 			movingPlatform = new MovingPlatform 1500, 200
-			@addStaticObject movingPlatform, 1
+			@addStaticObject movingPlatform, 2
 
 		_addOctocat: =>
-			@addChildAt @octocat, 2
+			@addChildAt @octocat, 3
