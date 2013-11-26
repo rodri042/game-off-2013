@@ -1,4 +1,4 @@
-define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
+define ["engine/MovieClip", "engine/Jukebox", "jquery"], (MovieClip, Jukebox, $) ->
 
 	class Transformation extends MovieClip
 		constructor: (octocat, @from, @to) ->
@@ -23,4 +23,5 @@ define ["engine/MovieClip", "jquery"], (MovieClip, $) ->
 
 		_beginTransformation: =>
 			@play()
+			Jukebox.play "octocat/morph"
 			@endPromise = $.Deferred()

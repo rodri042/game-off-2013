@@ -40,7 +40,7 @@ define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/A
 			if @isInAir() then return
 
 			@speedY += @jumpingSpeed()
-			Jukebox.play "octocat-jumping"
+			Jukebox.play "octocat/jump"
 
 		morph: (newShape) =>
 			@shape.morphInto @, newShape
