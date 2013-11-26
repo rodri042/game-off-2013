@@ -4,7 +4,8 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 		constructor: (@resolution, @octocat, @staticObjects) ->
 			super "night-long.png", @resolution.width, @resolution.height
 
-			@octocatPosition = @octocat.position.x
+		#properties
+		scrollSpeed: => 1
 
 		#methods
 		render: =>
@@ -12,7 +13,8 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 				it.position.x = @tilePosition.x + it.absolutePosition.x
 
 			@goLeft()
+			@octocat.position.x -= @scrollSpeed()
 
 		goTo: (positionX) => @tilePosition.x = positionX
 
-		goLeft: => @tilePosition.x--
+		goLeft: => @tilePosition.x -= @scrollSpeed()
