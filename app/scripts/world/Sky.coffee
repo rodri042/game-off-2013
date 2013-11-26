@@ -8,11 +8,10 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 
 		#methods
 		render: =>
-			deltaX = @octocat.position.x - @octocatPosition
-			@tilePosition.x -= deltaX
 			@staticObjects.forEach (it) =>
 				it.position.x = @tilePosition.x + it.absolutePosition.x
-			@octocat.position.x = @octocatPosition
+
+			@goLeft()
 
 		goTo: (positionX) => @tilePosition.x = positionX
 
