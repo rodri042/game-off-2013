@@ -1,4 +1,4 @@
-define ["characters/ClassicShape", "physics/Gravity", "utils/ArrayUtils"], (ClassicShape, Gravity) ->
+define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/ArrayUtils"], (ClassicShape, Gravity, Jukebox) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
@@ -40,6 +40,7 @@ define ["characters/ClassicShape", "physics/Gravity", "utils/ArrayUtils"], (Clas
 			if @isInAir() then return
 
 			@speedY += @jumpingSpeed()
+			Jukebox.play "octocat-jumping"
 
 		morph: (newShape) =>
 			@shape.morphInto @, newShape
