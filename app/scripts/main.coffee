@@ -2,6 +2,7 @@ require.config
 	paths:
 		jquery: "../bower_components/jquery/jquery"
 		pixi: "../bower_components/pixi/bin/pixi"
+		buzz: "../bower_components/buzz/dist/buzz"
 		bootstrapAffix: "../bower_components/sass-bootstrap/js/affix"
 		bootstrapAlert: "../bower_components/sass-bootstrap/js/alert"
 		bootstrapButton: "../bower_components/sass-bootstrap/js/button"

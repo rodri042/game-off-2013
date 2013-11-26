@@ -2,11 +2,13 @@
 
 ## Open-source frameworks & technologies involved
 
-* [CoffeeScript](http://coffeescript.org/) - An attempt to expose the good parts of JavaScript in a simple way
-
+* [CoffeeScript](http://coffeescript.org/) - Morphtocat is written 100% on CoffeeScript
 * [pixi.js](https://github.com/GoodBoyDigital/pixi.js/) - Super fast HTML 5 2D rendering engine that uses webGL with canvas fallback
-* [Buzz](https://github.com/jaysalvat/buzz) - Small but powerful Javascript library that allows you to easily take advantage of the new HTML5 audio element. It degrades silently on non-modern browsers
+* [Buzz](https://github.com/jaysalvat/buzz) - HTML5 audio element made easy, it also degrades silently on non-modern browsers
 
-* [Grunt](http://gruntjs.com/) - The JavaScript Task Runner
-* [Bower](http://bower.io/) - A package manager for the web
-* [Yeoman](http://yeoman.io/) - Modern workflows for modern webapps
+## And also thanks to...
+
+* [Grunt](http://gruntjs.com/) - For providing us a fast and responsive development environment
+* [Bower](http://bower.io/) - For managing our packages (pixi and a few more)
+* [Yeoman](http://yeoman.io/) - For the initial scaffolding of the webapp
+* [@leereilly](https://github.com/leereilly) - For allowing us to use the octocats :)
