@@ -3,9 +3,10 @@ define ["engine/Sprite"], (Sprite) ->
 	class Platform extends Sprite
 		constructor: (textureName, x, y) ->
 			super textureName
+			@position.x = x
 			@position.y = y
-			@relativePosition = @position
-			@absolutePosition = x: x, y: y
+			@absoluteX = x
+
 			@anchor.x = 0.5
 			@collisionToleranceOffset = 15
 
@@ -19,6 +20,7 @@ define ["engine/Sprite"], (Sprite) ->
 		#methods
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @_calculateY(anObject) - @collisionToleranceOffset
+
 		isOnPlatform: (anObject) =>
 			@_collidesOnX(anObject) && not anObject.isGoingUp() && @_isTouchingSurface(anObject)
 
@@ -30,5 +32,5 @@ define ["engine/Sprite"], (Sprite) ->
 			expectedY - @collisionToleranceOffset <= anObject.position.y <= expectedY + @collisionToleranceOffset
 
 		_calculateY: (anObject) =>
-			currentY = @position.y + anObject.absolutePosition.x * @rightCorner().y / @width
+			currentY = @position.y + anObject.absoluteX * @rightCorner().y / @width
 			currentY - @height / 2

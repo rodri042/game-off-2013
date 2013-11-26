@@ -3,8 +3,8 @@ define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/A
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
 			super()
-			@absolutePosition = x: 0, y: 0
-			@move 100, 100
+			@absoluteX = 0
+			@_move 100, 100
 
 			@shape = new ClassicShape()
 			@addChild @shape
@@ -50,16 +50,16 @@ define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/A
 			@shape = newShape
 			@addChild @shape
 
-		move: (x, y) =>
+		_move: (x, y) =>
 			y = y || 0
 			@position.x += x; @position.y += y
-			@absolutePosition.x += x; @absolutePosition.y += y
+			@absoluteX += x
 
 		_walk: (speed) =>
-			@move speed, 0
+			@_move speed, 0
 			@shape.move?()
 
 		_sufferFromGravityEffects: =>
 			@speedY += @gravity.actualSpeed
 			@gravity.timeHasPassed()
-			@move 0, @speedY
+			@_move 0, @speedY

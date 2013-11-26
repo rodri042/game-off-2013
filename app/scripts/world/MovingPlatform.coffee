@@ -22,7 +22,7 @@ define ["world/Platform"], (Platform) ->
 			if @displacement <= -@maximumDisplacement()
 				@flip()
 
-			@absolutePosition.x += @currentSpeed()
+			@absoluteX += @currentSpeed()
 			@displacement += @currentSpeed()
 
 		placeOnFloor: (anOctocat) =>

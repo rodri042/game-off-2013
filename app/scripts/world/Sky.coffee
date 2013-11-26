@@ -10,10 +10,10 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 		#methods
 		render: =>
 			@staticObjects.forEach (it) =>
-				it.position.x = @tilePosition.x + it.absolutePosition.x
+				it.position.x = @tilePosition.x + it.absoluteX
 
 			@goLeft()
-			@octocat.move -@scrollSpeed()
+			@octocat.position.x = @tilePosition.x + @octocat.absoluteX
 
 		goTo: (positionX) => @tilePosition.x = positionX
 

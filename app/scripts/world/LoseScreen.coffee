@@ -10,7 +10,7 @@ define ["engine/Sprite", "pixi"], (Sprite) ->
 			@cat.position.y = @height / 2
 			@addChild @cat
 
-			message = new PIXI.Text "El gato murió", fill: "black"
+			message = new PIXI.Text "You lose", fill: "black"
 			message.position.x = @width / 2 - message.width / 2
 			message.position.y = @height / 2 - @cat.height / 2 - 50
 			@addChild message
