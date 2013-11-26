@@ -28,14 +28,18 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 
 			@world.addChild new PIXI.Text("Flechas, Espacio, C, R, D", fill: "black")
 
+			Morphtocat.Speed = 0
+
 		gameLoop: =>
 			if @stop then return
 
 			@world.render()
 
-			if @octocat.absoluteX + @octocat.width() / 2 < 0 and !@world.isDied
+			if @octocat.position.x + @octocat.width() / 2 < 0 and !@world.isDied
 				@world.isDied = true
 				@world.addChild new LoseScreen()
+
+			Morphtocat.Speed += .01
 
 		_bindKeys: =>
 			keys = @world.keys

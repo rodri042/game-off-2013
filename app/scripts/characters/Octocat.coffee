@@ -1,4 +1,4 @@
-define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/ArrayUtils"], (ClassicShape, Gravity, Jukebox) ->
+define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/ArrayUtils", "morphtocat"], (ClassicShape, Gravity, Jukebox, _, Morphtocat) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
@@ -13,10 +13,10 @@ define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/A
 			@gravity = new Gravity()
 
 		#properties
-		speed: => @shape.speed()
+		speed: => Morphtocat.Speed + @shape.speed()
+		jumpingSpeed: => @shape.jumpingSpeed()
 		width: => @shape.width
 		height: => @shape.height
-		jumpingSpeed: => @shape.jumpingSpeed()
 		isGoingUp: => @speedY < 0
 		isInAir: (air) =>
 			if air? #setter

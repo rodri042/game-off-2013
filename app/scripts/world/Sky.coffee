@@ -1,11 +1,11 @@
-define ["engine/TilingSprite"], (TilingSprite) ->
+define ["engine/TilingSprite", "morphtocat"], (TilingSprite, Morphtocat) ->
 
 	class Sky extends TilingSprite
 		constructor: (@resolution, @octocat, @staticObjects) ->
 			super "night-long.png", @resolution.width, @resolution.height
 
 		#properties
-		scrollSpeed: => 1
+		scrollSpeed: => Morphtocat.Speed + 1
 
 		#methods
 		render: =>
@@ -13,6 +13,7 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 				it.position.x = @tilePosition.x + it.absoluteX
 
 			@goLeft()
+
 			@octocat.position.x = @tilePosition.x + @octocat.absoluteX
 
 		goTo: (positionX) => @tilePosition.x = positionX
