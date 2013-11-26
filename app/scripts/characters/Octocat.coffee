@@ -1,4 +1,4 @@
-define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"], (ClassicShape, PhysicConstants) ->
+define ["characters/ClassicShape", "physics/Gravity", "utils/ArrayUtils"], (ClassicShape, Gravity) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->
@@ -10,6 +10,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@addChild @shape
 			@speedY = 0
 			@_isInAir = true
+			@gravity = new Gravity()
 
 		#properties
 		speed: => @shape.speed()
@@ -22,6 +23,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 				@_isInAir = air
 				if !air
 					@speedY = 0
+					@gravity.resetSpeed()
 			else #getter
 				@_isInAir
 
@@ -57,5 +59,6 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape.move?()
 
 		_sufferFromGravityEffects: =>
-			@speedY += PhysicConstants.gravitySpeed()
+			@speedY += @gravity.actualSpeed
+			@gravity.timeHasPassed()
 			@move 0, @speedY
