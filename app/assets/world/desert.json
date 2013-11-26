@@ -1,0 +1,20 @@
+{"frames": {
+
+"desert.png":
+{
+	"frame": {"x":0,"y":0,"w":1000,"h":512},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1000,"h":512},
+	"sourceSize": {"w":1000,"h":512}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "desert.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:84873f686de1722db7c0616c6065c85c:c87387bd6e32d5da294cdddd18a6dec4:9079d49d04c46c8a17182f4b724d619f$"
+}
+}

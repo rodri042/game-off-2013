@@ -24,8 +24,6 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 			if currentPlatform?
 				currentPlatform.placeOnFloor @octocat
 
-			#@sky.goLeft()
-
 		currentPlatformOf: (anObject) =>
 			if @collidesOnBottom @octocat then return @
 			@staticObjects.findOne (it) => it.isOnPlatform @octocat

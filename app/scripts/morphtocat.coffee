@@ -1,4 +1,4 @@
-define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape"], (Game, ClassicShape, RainbowShape, DojocatShape) ->
+define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen"], (Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen) ->
 
 	class Morphtocat extends Game
 		constructor: (@world) ->
@@ -16,6 +16,8 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			"assets/world/night-long.json"
 			"assets/world/platform.json"
 			"assets/world/ruby-platform.json"
+			"assets/world/parallaxcat.json"
+			"assets/world/desert.json"
 		]
 
 		#methods
@@ -32,9 +34,9 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@world.render()
 
 			if @octocat.absolutePosition.x + @octocat.width() / 2 < 0
-				alert "perdiste!!! :)"
-				@stop = true
-				@world.view().remove()
+				@world.addChild new LoseScreen()
+				#@stop = true
+				#@world.view().remove()
 
 		_bindKeys: =>
 			keys = @world.keys

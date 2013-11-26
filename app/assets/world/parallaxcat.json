@@ -1,0 +1,20 @@
+{"frames": {
+
+"parallaxcat.png":
+{
+	"frame": {"x":2,"y":2,"w":186,"h":230},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":1,"y":0,"w":186,"h":230},
+	"sourceSize": {"w":188,"h":230}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "parallaxcat.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:edc96c70e78460da476ab8bb455916f7:3dd3d1259c0b8175e34864a71a72b494:3a4e1c952f250347cd1b289d30117cac$"
+}
+}
