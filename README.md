@@ -11,3 +11,4 @@
 * [Grunt](http://gruntjs.com/) - For providing us a fast and responsive development environment
 * [Bower](http://bower.io/) - For managing our packages (pixi and a few more)
 * [Yeoman](http://yeoman.io/) - For the initial scaffolding of the webapp
+* [@leereilly](https://github.com/leereilly) - For allowing us to use the octocats :)
