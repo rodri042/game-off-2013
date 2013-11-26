@@ -4,7 +4,7 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 		constructor: ->
 			super()
 			@absolutePosition = x: 0, y: 0
-			@_move 100, 100
+			@move 100, 100
 
 			@shape = new ClassicShape()
 			@addChild @shape
@@ -47,15 +47,15 @@ define ["characters/ClassicShape", "physics/PhysicConstants", "utils/ArrayUtils"
 			@shape = newShape
 			@addChild @shape
 
-		_move: (x, y) =>
+		move: (x, y) =>
 			y = y || 0
 			@position.x += x; @position.y += y
 			@absolutePosition.x += x; @absolutePosition.y += y
 
 		_walk: (speed) =>
-			@_move speed, 0
+			@move speed, 0
 			@shape.move?()
 
 		_sufferFromGravityEffects: =>
 			@speedY += PhysicConstants.gravitySpeed()
-			@_move 0, @speedY
+			@move 0, @speedY

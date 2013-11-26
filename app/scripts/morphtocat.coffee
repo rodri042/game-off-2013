@@ -27,7 +27,14 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@world.addChild new PIXI.Text("Flechas, Espacio, C, R, D", fill: "black")
 
 		gameLoop: =>
+			if @stop then return
+
 			@world.render()
+
+			if @octocat.absolutePosition.x + @octocat.width() / 2 < 0
+				alert "perdiste!!! :)"
+				@stop = true
+				@world.view().remove()
 
 		_bindKeys: =>
 			keys = @world.keys

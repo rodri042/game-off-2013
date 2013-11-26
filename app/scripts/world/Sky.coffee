@@ -13,7 +13,7 @@ define ["engine/TilingSprite"], (TilingSprite) ->
 				it.position.x = @tilePosition.x + it.absolutePosition.x
 
 			@goLeft()
-			@octocat.position.x -= @scrollSpeed()
+			@octocat.move -@scrollSpeed()
 
 		goTo: (positionX) => @tilePosition.x = positionX
 
