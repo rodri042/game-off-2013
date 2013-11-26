@@ -7,7 +7,7 @@ define ["world/Platform"], (Platform) ->
 			@direction = 1
 
 		maximumDisplacement: => 200
-		
+
 		speed: => 3
 
 		currentSpeed: => @speed() * @direction
@@ -23,3 +23,7 @@ define ["world/Platform"], (Platform) ->
 
 			@absolutePosition.x += @currentSpeed()
 			@displacement += @currentSpeed()
+
+		placeOnFloor: (anOctocat) =>
+			super anOctocat
+			anOctocat.position.x += @currentSpeed()
