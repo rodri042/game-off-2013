@@ -10,9 +10,11 @@ define ["engine/Sprite"], (Sprite) ->
 			@collisionToleranceOffset = 15
 
 		#properties
-		leftCornerX: => @position.x - @width * @anchor.x
 		nonWalkableMargin: => 0
-		rightCornerY: => @width * Math.tan @rotation
+		leftCornerX: => @position.x - @width * @anchor.x
+		rightCorner: =>
+			x: @leftCornerX() + @width
+			y: @width * Math.tan @rotation
 
 		#methods
 		placeOnFloor: (anObject) =>
@@ -21,12 +23,12 @@ define ["engine/Sprite"], (Sprite) ->
 			@_collidesOnX(anObject) && not anObject.isGoingUp() && @_isTouchingSurface(anObject)
 
 		_collidesOnX: (anObject) =>
-			@leftCornerX() + @nonWalkableMargin() < anObject.position.x < @leftCornerX() + @width - @nonWalkableMargin()
+			@leftCornerX() + @nonWalkableMargin() < anObject.position.x < @rightCorner().x - @nonWalkableMargin()
 
 		_isTouchingSurface: (anObject) =>
 			expectedY = @_calculateY anObject
 			expectedY - @collisionToleranceOffset <= anObject.position.y <= expectedY + @collisionToleranceOffset
 
 		_calculateY: (anObject) =>
-			currentY = @position.y + anObject.absolutePosition.x * @rightCornerY() / @width
+			currentY = @position.y + anObject.absolutePosition.x * @rightCorner().y / @width
 			currentY - @height / 2
