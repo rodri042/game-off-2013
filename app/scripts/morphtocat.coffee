@@ -37,8 +37,6 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 				@world.isDied = true
 				@world.addChild new LoseScreen()
 
-			console.log @octocat.absoluteX + ", " + @octocat.position.y
-
 		_bindKeys: =>
 			keys = @world.keys
 			keys.left = => @octocat.moveLeft()
