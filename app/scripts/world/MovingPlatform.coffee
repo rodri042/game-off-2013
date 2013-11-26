@@ -6,12 +6,13 @@ define ["world/Platform"], (Platform) ->
 			@displacement = 0
 			@direction = 1
 
+		#properties
 		maximumDisplacement: => 200
-
 		speed: => 3
-
 		currentSpeed: => @speed() * @direction
+		nonWalkableMargin: => 40
 
+		#methods
 		flip: => @direction *= -1
 
 		render: =>

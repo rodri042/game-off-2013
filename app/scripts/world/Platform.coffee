@@ -11,6 +11,7 @@ define ["engine/Sprite"], (Sprite) ->
 
 		#properties
 		cornerX: => @position.x - @width * @anchor.x
+		nonWalkableMargin: => 0
 
 		#methods
 		placeOnFloor: (anObject) =>
@@ -20,7 +21,7 @@ define ["engine/Sprite"], (Sprite) ->
 			@_collidesOnX(anObject) && not anObject.isGoingUp() && @_isTouchingSurface(anObject)
 
 		_collidesOnX: (anObject) =>
-			@cornerX() < anObject.position.x < @cornerX() + @width
+			@cornerX() + @nonWalkableMargin() < anObject.position.x < @cornerX() + @width - @nonWalkableMargin()
 
 		_isTouchingSurface: (anObject) =>
 			expectedY = @_calculateY anObject
