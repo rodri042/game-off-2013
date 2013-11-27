@@ -6,7 +6,7 @@ define ["engine/MovieClip", "characters/Transformation"], (MovieClip, Transforma
 
 		#properties
 		speed: => 3
-		jumpingSpeed: => -15
+		jumpingSpeed: => -16
 
 		#methods
 		move: =>
