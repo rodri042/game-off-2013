@@ -35,12 +35,17 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 			@world.render()
 
+			@_checkIfOctocatIsOutOfScreen()
+
+			@_increaseGlobalSpeed()
+			
+		_checkIfOctocatIsOutOfScreen: =>
 			if @octocat.position.x + @octocat.width() / 2 < 0 and !@world.isDied
 				@world.isDied = true
 				@world.clear()
 				@world.addChild new LoseScreen()
 
-			Morphtocat.Speed += .01
+		_increaseGlobalSpeed: => Morphtocat.Speed += .01
 
 		_bindKeys: =>
 			keys = @world.keys
