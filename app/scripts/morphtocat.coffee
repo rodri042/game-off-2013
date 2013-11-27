@@ -33,12 +33,12 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			@score = @world.addChild new Counter(@world.sky)
 
 		gameLoop: =>
+			if @stop then return
 			@world.render()
 
 			if @died then return
 			@_checkIfIsOutOfScreen()
 			@_checkIfEatsAnOctoball()
-
 
 			@_increaseGlobalSpeed()
 			
@@ -59,7 +59,9 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			@world.clear()
 			@world.addChild new LoseScreen()
 			@world.addChild @score
-			@world.keys.enter = => window.initGame()
+			@world.keys.enter = =>
+				@stop = true
+				window.initGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .01
 
