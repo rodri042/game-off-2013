@@ -1,12 +1,15 @@
 define ["pixi"], (PIXI) ->
 
 	class Counter extends PIXI.Text
-		constructor: (@elements, @label) ->
-			super label, fill: "black"
-			@position.x = @position.y = 8
+		constructor: (@sky, y) ->
+			super @count(), { fill: "white", font: "18px Calibri" }
+			@position.y = @sky.height - @height
 
 		#properties
-		count: => @elements.length
+		count: =>
+			count = -@sky.tilePosition.x.toFixed 2
+			if count < 0 then count = 0
+			"#{count} m"
 
 		#methods
-		render: => @setText @label + @count()
+		render: => @setText @count()

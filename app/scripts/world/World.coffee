@@ -37,16 +37,13 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 			random = (min, max) => new Randomizer(min, max).get()
 
 			offset = random(1000, 1100)
-			if @_canAddObjectsIn @octocat.absoluteX + offset, 300
-				if random(1, 100) <= 10
-					@_addOctoball @octocat.absoluteX + offset, random(50, 450)
-				else
-					if random(1, 100) < 3
-						@_addRuby @octocat.absoluteX + offset, random(250, 350)
-					else
-						if random(1, 100) <= 1 and @_canAddObjectsIn @octocat.absoluteX + offset, 400
-							direction = if random(0, 1) == 0 then -1 else 1
-							@_addTable @octocat.absoluteX + offset, 400, direction * Math.random() * 0.35
+			if not @_canAddObjectsIn @octocat.absoluteX + offset, 300
+				return
+
+			if random(1, 100) <= 10
+				@_addOctoball @octocat.absoluteX + offset, random(50, 450)
+			else if random(1, 100) < 3
+				@_addRuby @octocat.absoluteX + offset, random(250, 350)
 
 		_canAddObjectsIn: (x, delta) =>
 			!@staticObjects.findOne((it) =>

@@ -1,4 +1,4 @@
-define ["engine/Sprite", "utils/Randomizer", "morphtocat"], (Sprite, Randomizer, Morphtocat) ->
+define ["engine/Sprite", "utils/Randomizer"], (Sprite, Randomizer) ->
 
 	class Octoball extends Sprite
 		constructor: (x, y) ->
@@ -14,12 +14,14 @@ define ["engine/Sprite", "utils/Randomizer", "morphtocat"], (Sprite, Randomizer,
 			@scale.y = 0.7
 
 		#properties
-		speed: => Morphtocat.Speed + new Randomizer(1, 5).get()
+		speed: => new Randomizer(1, 5).get()
+		solid: => true
 
 		#methods
 		render: =>
 			@_rotateLeft()
 			@position.x -= @speed()
+			@absoluteX -= @speed()
 
 		_rotateLeft: => 
 			@rotation -= 0.06

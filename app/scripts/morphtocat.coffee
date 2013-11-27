@@ -1,4 +1,4 @@
-define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen"], (PIXI, Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen) ->
+define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen", "world/Counter"], (PIXI, Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen, Counter) ->
 
 	class Morphtocat extends Game
 		constructor: (@world) ->
@@ -29,24 +29,36 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 			@_bindKeys()
 
-			@world.addChild new PIXI.Text("Press C, R, D to morph in another Octocat...", { fill: "black", font: "25px Calibri" })
+			@world.addChild new PIXI.Text("Avoid the Octoballs!\nPress Q, W, E to morph in another Octocat...", { fill: "black", font: "18px Calibri" })
+			@score = @world.addChild new Counter(@world.sky)
 
 		gameLoop: =>
 			@world.render()
 
 			if @died then return
-			@_checkIfOctocatIsOutOfScreen()
+			@_checkIfIsOutOfScreen()
+			@_checkIfEatsAnOctoball()
+
 
 			@_increaseGlobalSpeed()
 			
-		_checkIfOctocatIsOutOfScreen: =>
+		_checkIfIsOutOfScreen: =>
 			if @octocat.position.x + @octocat.width() / 2 < 0
 				@_endGame()
+
+		_checkIfEatsAnOctoball: =>
+			collides = @world.staticObjects.findOne((it) =>
+				collidesOnX = it.absoluteX - it.width / 2 <= @octocat.absoluteX <= it.absoluteX + it.width / 2
+				collidesOnY =  it.position.y - it.height / 2 <= @octocat.position.y <= it.position.y + it.height / 2
+				collidesOnX and collidesOnY and it.solid?
+			)?
+			if collides then @_endGame()
 
 		_endGame: =>
 			@died = true
 			@world.clear()
 			@world.addChild new LoseScreen()
+			@world.addChild @score
 			@world.keys.enter = => window.initGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .01
@@ -57,7 +69,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			keys.right = => @octocat.moveRight()
 			keys.down = =>
 			keys.up = =>
-			keys.r = => @octocat.morph new RainbowShape()
-			keys.c = => @octocat.morph new ClassicShape()
-			keys.d = => @octocat.morph new DojocatShape()
+			keys.q = => @octocat.morph new ClassicShape()
+			keys.w = => @octocat.morph new RainbowShape()
+			keys.e = => @octocat.morph new DojocatShape()
 			keys.space = => @octocat.jump()
