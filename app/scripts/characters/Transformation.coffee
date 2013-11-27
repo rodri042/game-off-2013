@@ -14,8 +14,8 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Juk
 				octocat.setShape to
 
 		#properties
-		speed: => @from.speed()
-		jumpingSpeed: => @from.jumpingSpeed()
+		speed: => @to.speed()
+		jumpingSpeed: => @to.jumpingSpeed()
 
 		#methods
 		morphInto: (octocat, newShape) => # you can't morph to another shape right now!

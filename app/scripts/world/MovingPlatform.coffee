@@ -1,4 +1,4 @@
-define ["world/Platform"], (Platform) ->
+define ["world/Platform", "utils/Randomizer"], (Platform, Randomizer) ->
 
 	class MovingPlatform extends Platform
 		constructor: (x, y) ->
@@ -6,8 +6,9 @@ define ["world/Platform"], (Platform) ->
 			@displacement = 0
 			@direction = 1
 
+			@maximumDisplacement = new Randomizer(150, 300).get()
+
 		#properties
-		maximumDisplacement: => 200
 		speed: => 3
 		currentSpeed: => @speed() * @direction
 		nonWalkableMargin: => 40
@@ -16,10 +17,10 @@ define ["world/Platform"], (Platform) ->
 		flip: => @direction *= -1
 
 		render: =>
-			if @displacement >= @maximumDisplacement()
+			if @displacement >= @maximumDisplacement
 				@flip()
 
-			if @displacement <= -@maximumDisplacement()
+			if @displacement <= -@maximumDisplacement
 				@flip()
 
 			@absoluteX += @currentSpeed()

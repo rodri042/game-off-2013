@@ -13,6 +13,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			"assets/sprites/classic-rainbow.json"
 			"assets/sprites/classic-dojocat.json"
 			"assets/sprites/rainbow-dojocat.json"
+			"assets/sprites/octoball.json"
 			"assets/world/night-long.json"
 			"assets/world/platform.json"
 			"assets/world/ruby-platform.json"

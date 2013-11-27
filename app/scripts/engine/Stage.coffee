@@ -7,6 +7,8 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, PIXI, Keyboard) ->
 			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
 			@keys = new Keyboard $(window)
 
+			@lastZIndex = 0
+
 		#properties
 		width: => @renderer.width
 		height: => @renderer.height

@@ -1,0 +1,20 @@
+{"frames": {
+
+"octoball.png":
+{
+	"frame": {"x":2,"y":2,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker ",
+	"version": "1.0",
+	"image": "octoball.png",
+	"format": "RGBA8888",
+	"size": {"w":256,"h":256},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:df102395d8b87c590c1d19016e3e3c53:388186113aafbf5c428ccecd63b07380:00cd0e7e7f24e0173a2493336394f091$"
+}
+}

@@ -4,7 +4,7 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 		constructor: ->
 			super "desert.png"
 
-			@cat = new Sprite("parallaxcat.png")
+			@cat = new Sprite "parallaxcat.png"
 			@cat.anchor.x = @cat.anchor.y = 0.5
 			@cat.position.x = @width / 2
 			@cat.position.y = @height / 2
