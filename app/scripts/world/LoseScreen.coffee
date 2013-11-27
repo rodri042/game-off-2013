@@ -16,7 +16,6 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 			@addChild message
 
 			@filters = [new PIXI.PixelateFilter()]
-			window.repiola = @
 
 			@lastUpdate = new Date()
 
