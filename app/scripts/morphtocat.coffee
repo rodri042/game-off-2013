@@ -1,4 +1,4 @@
-define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen"], (Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen) ->
+define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen"], (PIXI, Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen) ->
 
 	class Morphtocat extends Game
 		constructor: (@world) ->

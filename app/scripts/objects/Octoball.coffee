@@ -1,4 +1,4 @@
-define ["pixi", "utils/Randomizer"], (_, Randomizer) ->
+define ["pixi", "utils/Randomizer"], (PIXI, Randomizer) ->
 
 	class Octoball extends PIXI.Sprite
 		constructor: ->

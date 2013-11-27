@@ -1,4 +1,4 @@
-define ["engine/Sprite", "pixi"], (Sprite) ->
+define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 
 	class LoseScreen extends Sprite
 		constructor: ->
@@ -15,5 +15,24 @@ define ["engine/Sprite", "pixi"], (Sprite) ->
 			message.position.y = @height / 2 - @cat.height / 2 - 55
 			@addChild message
 
+			@filters = [new PIXI.PixelateFilter()]
+			window.repiola = @
+
+			@lastUpdate = new Date()
+
 		render: =>
 			@cat.rotation += .001
+
+			if !@filters? then return
+
+			time = new Date()
+			if time - @lastUpdate > 30
+				@lastUpdate = time
+				pixelSize = @filters.first()
+					.uniforms.pixelSize.value
+
+				pixelSize.x--
+				pixelSize.y--
+
+				if pixelSize.x == 0
+					@filters = null
