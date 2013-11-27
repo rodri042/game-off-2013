@@ -28,4 +28,4 @@ define ["world/Platform", "utils/Randomizer"], (Platform, Randomizer) ->
 
 		placeOnFloor: (anOctocat) =>
 			super anOctocat
-			anOctocat.position.x += @currentSpeed()
+			anOctocat.move @currentSpeed()

@@ -29,7 +29,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 			@_bindKeys()
 
-			@world.addChild new PIXI.Text("Flechas, Espacio, C, R, D", fill: "black")
+			@world.addChild new PIXI.Text("Press C, R, D to morph in another Octocat...", { fill: "black", font: "25px Calibri" })
 
 		gameLoop: =>
 			@world.render()

@@ -4,7 +4,7 @@ define ["pixi", "characters/ClassicShape", "physics/Gravity", "engine/Jukebox", 
 		constructor: ->
 			super()
 			@absoluteX = 0
-			@_move 100, 100
+			@move 100, 100
 
 			@shape = new ClassicShape()
 			@addChild @shape
@@ -50,16 +50,16 @@ define ["pixi", "characters/ClassicShape", "physics/Gravity", "engine/Jukebox", 
 			@shape = newShape
 			@addChild @shape
 
-		_move: (x, y) =>
+		move: (x, y) =>
 			y = y || 0
 			@position.x += x; @position.y += y
 			@absoluteX += x
 
 		_walk: (speed) =>
-			@_move speed, 0
+			@move speed, 0
 			@shape.move?()
 
 		_sufferFromGravityEffects: =>
 			@speedY += @gravity.actualSpeed
 			@gravity.timeHasPassed()
-			@_move 0, @speedY
+			@move 0, @speedY
