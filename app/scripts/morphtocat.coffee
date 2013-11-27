@@ -31,19 +31,22 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			Morphtocat.Speed = 0
 
 		gameLoop: =>
-			if @stop then return
-
 			@world.render()
 
+			if @died then return
 			@_checkIfOctocatIsOutOfScreen()
 
 			@_increaseGlobalSpeed()
 			
 		_checkIfOctocatIsOutOfScreen: =>
 			if @octocat.position.x + @octocat.width() / 2 < 0 and !@world.isDied
-				@world.isDied = true
-				@world.clear()
-				@world.addChild new LoseScreen()
+				@_endGame()
+
+		_endGame: =>
+			@died = true
+			@world.clear()
+			@world.addChild new LoseScreen()
+			@world.keys.enter = => window.initGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .01
 

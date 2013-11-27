@@ -56,6 +56,10 @@ require.config
 require ["engine/Resolution", "world/World", "morphtocat"], (Resolution, World, Morphtocat) ->
 	"use strict"
 
-	world = new World new Resolution(1000, 512), 0x6B56A6
-	$("#game").append world.view()
-	window.morphtocat = new Morphtocat world
+	window.initGame = =>
+		world = new World new Resolution(1000, 512), 0x6B56A6
+		$("#game").children().remove()
+		$("#game").append world.view()
+		window.morphtocat = new Morphtocat world
+
+	initGame()

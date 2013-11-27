@@ -10,10 +10,17 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 			@cat.position.y = @height / 2
 			@addChild @cat
 
-			message = new PIXI.Text "You lose", { fill: "#FFD187", font: "bold 40px Calibri" }
+			textOptions = fill: "#FFD187", font: "bold 40px Calibri"
+
+			message = new PIXI.Text "You lose", textOptions
 			message.position.x = @width / 2 - message.width / 2
 			message.position.y = @height / 2 - @cat.height / 2 - 55
 			@addChild message
+
+			#restartMessage = new PIXI.Text "Press enter to restart", textOptions
+			#restartMessage.position.x = @width / 2 - restartMessage.width / 2
+			#restartMessage.position.y = @height - restartMessage.height - 20
+			#@addChild restartMessage
 
 			@filters = [new PIXI.PixelateFilter()]
 
