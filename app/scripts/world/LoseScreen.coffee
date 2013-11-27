@@ -17,10 +17,11 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 			message.position.y = @height / 2 - @cat.height / 2 - 55
 			@addChild message
 
-			#restartMessage = new PIXI.Text "Press enter to restart", textOptions
-			#restartMessage.position.x = @width / 2 - restartMessage.width / 2
-			#restartMessage.position.y = @height - restartMessage.height - 20
-			#@addChild restartMessage
+			restartMessage = new PIXI.Text "Press enter to restart", textOptions
+			restartMessage.position.x = @width / 2 - restartMessage.width / 2
+			restartMessage.position.y = @height - restartMessage.height - 20
+			restartMessage.filters = [new PIXI.BlurFilter()]
+			@addChild restartMessage
 
 			@filters = [new PIXI.PixelateFilter()]
 

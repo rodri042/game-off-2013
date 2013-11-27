@@ -39,7 +39,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 			@_increaseGlobalSpeed()
 			
 		_checkIfOctocatIsOutOfScreen: =>
-			if @octocat.position.x + @octocat.width() / 2 < 0 and !@world.isDied
+			if @octocat.position.x + @octocat.width() / 2 < 0
 				@_endGame()
 
 		_endGame: =>
