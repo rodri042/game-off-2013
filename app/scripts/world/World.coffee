@@ -30,7 +30,7 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 			@staticObjects.findOne (it) => it.isOnPlatform @octocat
 
 		addStaticObject: (anObject) =>
-			@addChild anObject
+			@addChildAt anObject, 1
 			@staticObjects.push anObject
 
 		_randomizeWorld: =>
@@ -41,9 +41,12 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 				if random(1, 100) <= 10
 					@_addOctoball @octocat.absoluteX + offset, random(50, 450)
 				else
-					if random(1, 100) < 2
+					if random(1, 100) < 3
 						@_addRuby @octocat.absoluteX + offset, random(250, 350)
-
+					else
+						if random(1, 100) <= 1 and @_canAddObjectsIn @octocat.absoluteX + offset, 400
+							direction = if random(0, 1) == 0 then -1 else 1
+							@_addTable @octocat.absoluteX + offset, 400, direction * Math.random() * 0.35
 
 		_canAddObjectsIn: (x, delta) =>
 			!@staticObjects.findOne((it) =>
@@ -52,7 +55,7 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 
 		_createSky: =>
 			@sky = new Sky(@resolution, @octocat, @staticObjects)
-			@addChild @sky
+			@addChildAt @sky, 0
 			@sky.goTo 200
 
 		_addTable: (x, y, rotation) =>
@@ -67,4 +70,4 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 			@addStaticObject new Octoball x, y
 
 		_addOctocat: =>
-			@addChild @octocat
+			@addChildAt @octocat, 1

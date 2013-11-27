@@ -23,13 +23,13 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 		#methods
 		init: =>
+			Morphtocat.Speed = 0
+
 			@octocat = @world.init()
 
 			@_bindKeys()
 
 			@world.addChild new PIXI.Text("Flechas, Espacio, C, R, D", fill: "black")
-
-			Morphtocat.Speed = 0
 
 		gameLoop: =>
 			@world.render()

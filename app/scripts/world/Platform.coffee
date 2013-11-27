@@ -12,7 +12,7 @@ define ["engine/Sprite"], (Sprite) ->
 
 		#properties
 		nonWalkableMargin: => 0
-		leftCornerX: => @position.x - @width * @anchor.x
+		leftCornerX: => @absoluteX - @width * @anchor.x
 		rightCorner: =>
 			x: @leftCornerX() + @width
 			y: @width * Math.tan @rotation
@@ -25,7 +25,7 @@ define ["engine/Sprite"], (Sprite) ->
 			@_collidesOnX(anObject) && not anObject.isGoingUp() && @_isTouchingSurface(anObject)
 
 		_collidesOnX: (anObject) =>
-			@leftCornerX() + @nonWalkableMargin() < anObject.position.x < @rightCorner().x - @nonWalkableMargin()
+			@leftCornerX() + @nonWalkableMargin() < anObject.absoluteX < @rightCorner().x - @nonWalkableMargin()
 
 		_isTouchingSurface: (anObject) =>
 			expectedY = @_calculateY anObject

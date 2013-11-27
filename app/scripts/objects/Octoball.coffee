@@ -10,6 +10,9 @@ define ["engine/Sprite", "utils/Randomizer", "morphtocat"], (Sprite, Randomizer,
 			@anchor.x = 0.5
 			@anchor.y = 0.5
 
+			@scale.x = 0.7
+			@scale.y = 0.7
+
 		#properties
 		speed: => Morphtocat.Speed + new Randomizer(1, 5).get()
 
