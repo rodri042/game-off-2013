@@ -4,9 +4,9 @@
   "dependencies": {
     "sass-bootstrap": "~3.0.0",
     "jquery": "~1.10.2",
-    "pixi": "~1.3.0",
     "requirejs": "~2.1.9",
-    "buzz": "~1.1.0"
+    "buzz": "~1.1.0",
+    "pixi": "dev"
   },
   "devDependencies": {}
 }
