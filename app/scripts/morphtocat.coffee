@@ -48,8 +48,10 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 		_checkIfEatsAnOctoball: =>
 			collides = @world.staticObjects.findOne((it) =>
-				collidesOnX = it.absoluteX - it.width <= @octocat.absoluteX <= it.absoluteX + it.width
-				collidesOnY =  it.position.y - it.height <= @octocat.position.y + @octocat.height() / 2 <= it.position.y + it.height
+				tolerance = 15
+
+				collidesOnX = it.absoluteX - it.width  + tolerance <= @octocat.absoluteX <= it.absoluteX + it.width - tolerance
+				collidesOnY =  it.position.y - it.height + tolerance <= @octocat.position.y + @octocat.height() / 2 <= it.position.y + it.height - tolerance
 				collidesOnX and collidesOnY and it.solid?
 			)?
 			if collides then @_endGame()
