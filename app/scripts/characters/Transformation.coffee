@@ -1,4 +1,4 @@
-define ["engine/MovieClip", "engine/Jukebox", "jquery"], (MovieClip, Jukebox, $) ->
+define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Jukebox, $, PIXI) ->
 
 	class Transformation extends MovieClip
 		constructor: (octocat, @from, @to) ->
@@ -8,7 +8,10 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery"], (MovieClip, Jukebox, $)
 			catch reverseSpriteError
 				super "#{to.name()}-#{from.name()}", numberOfTextures, true
 
-			@_beginTransformation().done => octocat.setShape to
+			@filters = [new PIXI.BlurFilter()]
+			@_beginTransformation().done =>
+				@filters = null
+				octocat.setShape to
 
 		#properties
 		speed: => @from.speed()
