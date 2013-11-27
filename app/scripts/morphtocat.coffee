@@ -37,6 +37,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 
 			if @octocat.position.x + @octocat.width() / 2 < 0 and !@world.isDied
 				@world.isDied = true
+				@world.clear()
 				@world.addChild new LoseScreen()
 
 			Morphtocat.Speed += .01

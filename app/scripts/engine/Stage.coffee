@@ -22,7 +22,7 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, PIXI, Keyboard) ->
 		render: =>
 			@keys.raiseEvents()
 
-			@children.forEach (it) -> it.render?()
+			@children.forEach (it) => it.render?()
 			@renderer.render @
 
 		addChild: (aChild) =>
@@ -48,6 +48,10 @@ define ["jquery", "pixi", "utils/Keyboard"], ($, PIXI, Keyboard) ->
 
 		placeOnFloor: (anObject) =>
 			anObject.position.y = @height() - anObject.height()
+
+		clear: =>
+			@children.forEach (it) => @removeChild it
+			@keys = new Keyboard $(window)
 
 		onClick: (action) =>
 			$(@view()).click action
