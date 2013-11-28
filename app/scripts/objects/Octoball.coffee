@@ -23,7 +23,7 @@ define ["engine/Sprite", "utils/Randomizer"], (Sprite, Randomizer) ->
 			@position.x -= @speed()
 			@absoluteX -= @speed()
 
+		isOnPlatform: => false
+
 		_rotateLeft: => 
 			@rotation -= 0.06
-
-		isOnPlatform: => false

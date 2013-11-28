@@ -25,6 +25,9 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 
 			@_randomizeWorld()
 
+			@staticObjects.removeItemsThat (it) =>
+				it.position.x <= -500
+
 		currentPlatformOf: (anObject) =>
 			if @collidesOnBottom @octocat then return @
 			@staticObjects.findOne (it) => it.isOnPlatform @octocat

@@ -11,6 +11,10 @@ define [], ->
 		index = @indexOf item
 		@splice index, 1
 
+	Array::removeItemsThat = (criteria) ->
+		if !isAFunction criteria then return
+		@filter(criteria).forEach (it) => @remove(it)
+
 	Array::isEmpty = -> @length == 0
 
 	Array::sum = (transformation) ->
