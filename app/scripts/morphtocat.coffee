@@ -65,7 +65,7 @@ define ["pixi", "engine/Game", "characters/ClassicShape", "characters/RainbowSha
 				@stop = true
 				window.initGame()
 
-		_increaseGlobalSpeed: => Morphtocat.Speed += .01
+		_increaseGlobalSpeed: => Morphtocat.Speed += .0075
 
 		_bindKeys: =>
 			keys = @world.keys
