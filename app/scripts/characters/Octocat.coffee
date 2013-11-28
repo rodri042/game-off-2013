@@ -1,4 +1,4 @@
-define ["pixi", "characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "utils/ArrayUtils", "morphtocat"], (PIXI, ClassicShape, Gravity, Jukebox, _, Morphtocat) ->
+define ["characters/ClassicShape", "physics/Gravity", "engine/Jukebox", "morphtocat", "pixi", "utils/ArrayUtils"], (ClassicShape, Gravity, Jukebox, Morphtocat) ->
 
 	class Octocat extends PIXI.DisplayObjectContainer
 		constructor: ->

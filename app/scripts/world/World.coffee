@@ -1,4 +1,4 @@
-define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "characters/Octocat", "utils/ArrayUtils", "utils/Randomizer", "objects/Octoball"], (Stage, Platform, MovingPlatform, Sky, Octocat, _, Randomizer, Octoball) ->
+define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "characters/Octocat", "utils/Randomizer", "objects/Octoball", "utils/ArrayUtils"], (Stage, Platform, MovingPlatform, Sky, Octocat, Randomizer, Octoball) ->
 
 	class World extends Stage
 		constructor: (resolution, background) ->

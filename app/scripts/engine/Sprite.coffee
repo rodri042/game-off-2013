@@ -1,4 +1,4 @@
-define ["pixi"], (PIXI) ->
+define ["pixi"], ->
 
 	class Sprite extends PIXI.Sprite
 		constructor: (textureName) ->

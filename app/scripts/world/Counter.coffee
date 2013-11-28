@@ -1,4 +1,4 @@
-define ["pixi"], (PIXI) ->
+define ["pixi"], ->
 
 	class Counter extends PIXI.Text
 		constructor: (@sky, y) ->
