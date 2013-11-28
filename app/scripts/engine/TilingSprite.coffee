@@ -1,4 +1,4 @@
-define ["pixi"], ->
+define ["pixi"], (PIXI) ->
 
 	class TilingSprite extends PIXI.TilingSprite
 		constructor: (textureName, width, height) ->

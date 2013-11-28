@@ -1,4 +1,4 @@
-define ["engine/Sprite", "pixi"], (Sprite) ->
+define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 
 	class LoseScreen extends Sprite
 		constructor: ->

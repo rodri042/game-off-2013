@@ -1,4 +1,4 @@
-define ["pixi", "utils/NumberUtils"], ->
+define ["pixi", "utils/NumberUtils"], (PIXI) ->
 
 	class MovieClip extends PIXI.MovieClip
 		constructor: (name, numberOfTextures, reverse) ->

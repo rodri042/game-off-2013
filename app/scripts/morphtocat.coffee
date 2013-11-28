@@ -1,4 +1,4 @@
-define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen", "world/Counter", "pixi"], (Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen, Counter) ->
+define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen", "world/Counter", "pixi"], (Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen, Counter, PIXI) ->
 
 	class Morphtocat extends Game
 		constructor: (@world) ->
@@ -33,7 +33,6 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@score = @world.addChild new Counter(@world.sky)
 
 		gameLoop: =>
-			if @stop then return
 			@world.render()
 
 			if @died then return
@@ -62,8 +61,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@world.addChild new LoseScreen()
 			@world.addChild @score
 			@world.keys.enter = =>
-				@stop = true
-				window.initGame()
+				window.location.reload()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .0075
 

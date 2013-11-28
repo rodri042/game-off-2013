@@ -1,4 +1,4 @@
-define ["jquery", "utils/Keyboard", "pixi"], ($, Keyboard) ->
+define ["jquery", "utils/Keyboard", "pixi"], ($, Keyboard, PIXI) ->
 
 	class Stage extends PIXI.Stage
 		constructor: (@resolution, background) ->

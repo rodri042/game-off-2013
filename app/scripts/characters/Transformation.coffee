@@ -1,4 +1,4 @@
-define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Jukebox, $) ->
+define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Jukebox, $, PIXI) ->
 
 	class Transformation extends MovieClip
 		constructor: (octocat, @from, @to) ->
