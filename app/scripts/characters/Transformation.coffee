@@ -8,9 +8,9 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Juk
 			catch reverseSpriteError
 				super "#{to.name()}-#{from.name()}", numberOfTextures, true
 
-			#@filters = [new PIXI.BlurFilter()]
+			@filters = [new PIXI.BlurFilter()]
 			@_beginTransformation().done =>
-				#@filters = null
+				@filters = null
 				octocat.setShape to
 
 		#properties

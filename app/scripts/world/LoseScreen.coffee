@@ -20,10 +20,10 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 			restartMessage = new PIXI.Text "Press enter to restart", textOptions
 			restartMessage.position.x = @width / 2 - restartMessage.width / 2
 			restartMessage.position.y = @height - restartMessage.height - 20
-			#restartMessage.filters = [new PIXI.BlurFilter()]
+			restartMessage.filters = [new PIXI.BlurFilter()]
 			@addChild restartMessage
 
-			#@filters = [new PIXI.PixelateFilter()]
+			@filters = [new PIXI.PixelateFilter()]
 
 			@lastUpdate = new Date()
 
