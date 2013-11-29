@@ -1,4 +1,4 @@
-define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
+define ["engine/Sprite", "pixi"], (Sprite) ->
 
 	class LoseScreen extends Sprite
 		constructor: ->
@@ -20,26 +20,19 @@ define ["engine/Sprite", "pixi"], (Sprite, PIXI) ->
 			restartMessage = new PIXI.Text "Press enter to restart", textOptions
 			restartMessage.position.x = @width / 2 - restartMessage.width / 2
 			restartMessage.position.y = @height - restartMessage.height - 20
-			restartMessage.filters = [new PIXI.BlurFilter()]
+			restartMessage.alpha = .5
 			@addChild restartMessage
 
-			@filters = [new PIXI.PixelateFilter()]
+			@alpha = 0
 
 			@lastUpdate = new Date()
 
 		render: =>
 			@cat.rotation += .001
 
-			if !@filters? then return
+			if @alpha == 1 then return
 
 			time = new Date()
 			if time - @lastUpdate > 30
 				@lastUpdate = time
-				pixelSize = @filters.first()
-					.uniforms.pixelSize.value
-
-				pixelSize.x--
-				pixelSize.y--
-
-				if pixelSize.x == 0
-					@filters = null
+				@alpha += .05

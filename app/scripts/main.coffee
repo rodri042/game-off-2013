@@ -57,7 +57,7 @@ require ["engine/Resolution", "world/World", "morphtocat"], (Resolution, World, 
 	"use strict"
 
 	window.initGame = =>
-		world = new World new Resolution(1000, 512), 0x6B56A6
+		world = new World new Resolution(1000, 512), 0x0
 		$("#game").children().remove()
 		$("#game").append world.view()
 		window.morphtocat = new Morphtocat world
