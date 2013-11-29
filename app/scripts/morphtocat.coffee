@@ -62,7 +62,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@world.addChild new LoseScreen()
 			@world.addChild @score
 			@world.keys.enter = =>
-				@world.keys.enter = =>
+				@world.keys.enter = => #avoid double enter
 				window.initGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .0075

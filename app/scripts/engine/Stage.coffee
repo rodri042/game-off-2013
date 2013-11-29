@@ -5,7 +5,7 @@ define ["jquery", "utils/Keyboard", "pixi"], ($, Keyboard) ->
 			super background
 
 			@renderer = PIXI.autoDetectRenderer @resolution.width, @resolution.height
-			@keys = new Keyboard $(window)
+			@clear()
 
 			@lastZIndex = 0
 
