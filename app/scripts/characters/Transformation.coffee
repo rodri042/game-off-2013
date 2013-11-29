@@ -8,9 +8,8 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Juk
 			catch reverseSpriteError
 				super "#{to.name()}-#{from.name()}", numberOfTextures, true
 
-			@alpha = .5
+			@alpha = 1
 			@_beginTransformation().done =>
-				@alpha = 1
 				octocat.setShape to
 
 		#properties
@@ -21,6 +20,9 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Juk
 		morphInto: (octocat, newShape) => # you can't morph to another shape right now!
 
 		render: =>
+			if @alpha > 0.5
+				@alpha -= .05
+
 			if (!@playing)
 				@endPromise?.resolve()
 
