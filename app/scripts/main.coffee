@@ -63,9 +63,6 @@ require ["engine/Resolution", "world/World", "morphtocat"], (Resolution, World, 
 		window.morphtocat = new Morphtocat world
 
 	window.resetGame = =>
-		isFirefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1
-		if isFirefox then window.location.reload()
-
-		window.initGame()
+		window.location.reload()
 
 	initGame()
