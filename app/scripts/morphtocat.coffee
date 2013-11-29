@@ -63,7 +63,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@world.addChild @score
 			@world.keys.enter = =>
 				@world.keys.enter = => #avoid double enter
-				window.initGame()
+				window.resetGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .0075
 

@@ -30,7 +30,7 @@ define ["engine/Sprite", "pixi"], (Sprite) ->
 		render: =>
 			@cat.rotation += .001
 
-			if @alpha == 1 then return
+			if @alpha >= 1 then return
 
 			time = new Date()
 			if time - @lastUpdate > 30
