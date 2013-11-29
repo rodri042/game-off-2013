@@ -16,6 +16,10 @@ define ["utils/ArrayUtils"], ->
 			@pressedKeys.forEach (key) =>
 				@_getHandlerFor(key)?()
 
+		unbindAll: =>
+			@target.unbind "keydown"
+			@target.unbind "keyup"
+
 		_registerEvent: (register, pressingHandler) =>
 			_this = @
 			register.call @target, (event) =>

@@ -13,3 +13,5 @@ define ["pixi"], ->
 
 		#methods
 		render: => @setText @count()
+
+		freeze: => @render = =>

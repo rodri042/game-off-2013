@@ -58,10 +58,12 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 		_endGame: =>
 			@died = true
 			@world.clear()
+			@score.freeze()
 			@world.addChild new LoseScreen()
 			@world.addChild @score
 			@world.keys.enter = =>
-				window.location.reload()
+				@world.keys.enter = =>
+				window.initGame()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .0075
 

@@ -52,7 +52,6 @@ define ["jquery", "utils/Keyboard", "pixi"], ($, Keyboard) ->
 			anObject.position.y = @height() - anObject.height()
 
 		clear: =>
-			@children.forEach (it) => @removeChild it
 			@keys = new Keyboard $(window)
 
 		onClick: (action) =>
