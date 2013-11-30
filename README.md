@@ -1,4 +1,4 @@
-![GitHub Game Off Game Jam](https://f.cloud.github.com/assets/121322/1436486/25f88b78-4158-11e3-9b23-43596516362c.png)
+![Morphtocat](https://f.cloud.github.com/assets/1585835/1649031/5671f7f8-59db-11e3-8f57-1eee53ae7d2f.png)
 
 ## Open-source frameworks & technologies involved
 
