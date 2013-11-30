@@ -1,5 +1,9 @@
 ![Morphtocat](https://f.cloud.github.com/assets/1585835/1649031/5671f7f8-59db-11e3-8f57-1eee53ae7d2f.png)
 
+## Morphtocat!
+
+Play as the classic Octocat, the ultimate jumper Rainbowcat or the super-runner Dojocat and try to avoid the balls. Each cat has its own skills, so you're gonna need to morph from time to time.
+
 ## Open-source frameworks & technologies involved
 
 * [CoffeeScript](http://coffeescript.org/) - Morphtocat is written 100% on CoffeeScript
