@@ -1,4 +1,5 @@
-define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen", "world/Counter", "pixi"], (Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen, Counter) ->
+define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "characters/DojocatShape", "world/LoseScreen", "world/Counter", "engine/Jukebox", "pixi"],
+(Game, ClassicShape, RainbowShape, DojocatShape, LoseScreen, Counter, Jukebox) ->
 
 	class Morphtocat extends Game
 		constructor: (@world) ->
@@ -25,6 +26,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 		init: =>
 			Morphtocat.Speed = 0
 
+			Jukebox.getInstance().init()
 			@octocat = @world.init()
 
 			@_bindKeys()
@@ -40,7 +42,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			@_checkIfEatsAnOctoball()
 
 			@_increaseGlobalSpeed()
-			
+
 		_checkIfIsOutOfScreen: =>
 			if @octocat.position.x + @octocat.width() / 2 < 0
 				@_endGame()

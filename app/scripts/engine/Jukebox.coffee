@@ -1,8 +1,23 @@
 define ["buzz"], (buzz) ->
 
 	class Jukebox
-		@play: (aSoundName) =>
-			aSound = new buzz.sound "../assets/sounds/#{aSoundName}",
-				formats: ["ogg", "mp3"]
+		@getInstance = ->
+			if !@instance?
+				@instance = new Jukebox()
 
-			aSound.play()
+			@instance
+
+		sounds: => [
+			"octocat/jump"
+			"octocat/morph"
+		]
+
+		init: => @sounds().forEach (it) => @createSound it
+
+		createSound: (aSoundName) =>
+			new buzz.sound "../assets/sounds/#{aSoundName}",
+				formats: ["ogg", "mp3"]
+				preload: true
+
+		play: (aSoundName) =>
+			@createSound(aSoundName).play()

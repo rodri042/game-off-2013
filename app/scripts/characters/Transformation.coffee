@@ -28,5 +28,5 @@ define ["engine/MovieClip", "engine/Jukebox", "jquery", "pixi"], (MovieClip, Juk
 
 		_beginTransformation: =>
 			@play()
-			Jukebox.play "octocat/morph"
+			Jukebox.getInstance().play "octocat/morph"
 			@endPromise = $.Deferred()
