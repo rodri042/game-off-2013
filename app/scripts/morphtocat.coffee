@@ -61,6 +61,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 		_endGame: =>
 			@isDead = true
 			@world.clear()
+			@world.addChild @world.sky
 			@score.freeze()
 			@world.addChild new LoseScreen()
 			@world.addChild @score
