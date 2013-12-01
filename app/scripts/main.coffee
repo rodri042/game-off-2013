@@ -62,7 +62,4 @@ require ["engine/Resolution", "world/World", "morphtocat"], (Resolution, World, 
 		$("#game").append world.view()
 		window.morphtocat = new Morphtocat world
 
-	window.resetGame = =>
-		window.location.reload()
-
 	initGame()

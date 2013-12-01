@@ -3,10 +3,11 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 	class World extends Stage
 		constructor: (resolution, background) ->
 			super resolution, background
-			@staticObjects = []
 
 		#methods
 		init: =>
+			@clear()
+			@staticObjects = []
 			@octocat = new Octocat()
 
 			@_createSky()
@@ -35,12 +36,6 @@ define ["engine/Stage", "world/Platform", "world/MovingPlatform", "world/Sky", "
 		addStaticObject: (anObject) =>
 			@addChildAt anObject, 1
 			@staticObjects.push anObject
-
-		clear: =>
-			super()
-			@children.forEach (it) =>
-				if it is not @sky
-					@removeChild it
 
 		_randomizeWorld: =>
 			random = (min, max) => new Randomizer(min, max).get()

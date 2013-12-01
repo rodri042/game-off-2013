@@ -53,6 +53,8 @@ define ["jquery", "utils/Keyboard", "pixi"], ($, Keyboard) ->
 
 		clear: =>
 			@keys = new Keyboard $(window)
+			while not @children.isEmpty()
+				@removeChild @getChildAt 0
 
 		onClick: (action) =>
 			$(@view()).click action

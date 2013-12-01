@@ -24,7 +24,6 @@ define ["engine/Sprite", "pixi"], (Sprite) ->
 			@addChild restartMessage
 
 			@alpha = 0
-
 			@lastUpdate = new Date()
 
 		render: =>

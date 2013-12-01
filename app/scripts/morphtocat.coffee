@@ -24,6 +24,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 
 		#methods
 		init: =>
+			@isDead = false
 			Morphtocat.Speed = 0
 
 			Jukebox.getInstance().init()
@@ -37,7 +38,7 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 		gameLoop: =>
 			@world.render()
 
-			if @died then return
+			if @isDead then return
 			@_checkIfIsOutOfScreen()
 			@_checkIfEatsAnOctoball()
 
@@ -58,14 +59,15 @@ define ["engine/Game", "characters/ClassicShape", "characters/RainbowShape", "ch
 			if collides then @_endGame()
 
 		_endGame: =>
-			@died = true
+			@isDead = true
 			@world.clear()
 			@score.freeze()
 			@world.addChild new LoseScreen()
 			@world.addChild @score
 			@world.keys.enter = =>
 				@world.keys.enter = => #avoid double enter
-				window.resetGame()
+				@isDead = false
+				@init()
 
 		_increaseGlobalSpeed: => Morphtocat.Speed += .0075
 
