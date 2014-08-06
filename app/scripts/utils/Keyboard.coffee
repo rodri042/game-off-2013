@@ -5,10 +5,10 @@ define ["utils/ArrayUtils"], ->
 			@_generateKeyCodeMap()
 			@pressedKeys = []
 
-			@_registerEvent target.keydown, (key) =>
+			@_on(target.keydown).do (key) =>
 				@pressedKeys.addIfNotExists key
 
-			@_registerEvent target.keyup, (key) =>
+			@_on(target.keyup).do (key) =>
 				@pressedKeys.remove key
 
 		#methods
@@ -16,19 +16,17 @@ define ["utils/ArrayUtils"], ->
 			@pressedKeys.forEach (key) =>
 				@_getHandlerFor(key)?()
 
-		_registerEvent: (register, pressingHandler) =>
-			_this = @
-			register.call @target, (event) =>
-				key = event.which
-				handler = @_getHandlerFor key
+		_on: (eventType) =>
+			do: (action) =>
+				eventType.call @target, (event) =>
+					key = event.which
+					handler = @_getHandlerFor key
 
-				if handler?
-					event.preventDefault()
-					pressingHandler key
+					if handler?
+						event.preventDefault()
+						action key
 
-		_getHandlerFor: (key) =>
-			_this = @
-			eval """_this["#{@keyCodeMap[key]}"]"""
+		_getHandlerFor: (key) => @[@keyCodeMap[key]]
 
 		_generateKeyCodeMap: =>
 			@keyCodeMap =
